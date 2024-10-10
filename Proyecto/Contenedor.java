@@ -1,13 +1,32 @@
 package Proyecto;
 
+import java.util.ArrayList;
+
 public class Contenedor {
     private int noDesechoAdmitido; //Lo permite relacionarlo con su respectivo desecho
     private int cantDesechosAdmitidos=0;
+    private static int cantDesAdmTotal=0;
     private String tipoDesecho;
+    private ArrayList<Desechos> desechosGuardados;
+
+    Contenedor(int noDesechoAdmitido){
+        switch (noDesechoAdmitido) {
+            case 0: tipoDesecho="Orgánico";         break;
+            case 1: tipoDesecho="Papeles/Cartones"; break;
+            case 2: tipoDesecho="Vidrios";          break;
+            case 3: tipoDesecho="Plásticos";        break;
+            case 4: tipoDesecho="Chatarra/Metal";   break;
+            case 5: tipoDesecho="Aceites";          break;
+            case 6: tipoDesecho="Pinturas";         break;
+            case 7: tipoDesecho="Baterías";         break;
+            case 8: tipoDesecho="Pilas";            break;
+        }
+    }
 
     public boolean verificarDesecho(Desechos desechoIng){
         if (desechoIng.getNoDesecho()==noDesechoAdmitido){
             cantDesechosAdmitidos++;
+            cantDesAdmTotal++;
             return true;
         }
         return false;
@@ -23,5 +42,9 @@ public class Contenedor {
 
     public String mostrarInsertadosFinal(){
         return ("El contenedor de "+tipoDesecho+" acumuló: "+cantDesechosAdmitidos+" desechos.");
+    }
+
+    public static int getCantTotalDesAdm(){
+        return cantDesAdmTotal;
     }
 }
