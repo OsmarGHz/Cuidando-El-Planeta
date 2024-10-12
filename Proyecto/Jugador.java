@@ -1,26 +1,46 @@
 package Proyecto;
 
 public class Jugador {
+    private String nombre;
     private int noVidasActuales=5;
     private int noPuntos=0;
 
+    Jugador(String nombre){
+        this.nombre=nombre;
+    }
+
     public void clasificarDesecho(Desechos desecho, Contenedor contenedor, Nivel niv){
         if (contenedor.verificarDesecho(desecho)){
-            System.out.println("Desecho clasificado correctamente: +"+niv.getPuntosRespCorrecta()+" pts.");
+            System.out.println("\nDesecho clasificado correctamente: +"+niv.getPuntosRespCorrecta()+" pts.");
+            contenedor.agregarDesecho(desecho);
             ganarPuntos(niv);
         }     
         else{
-            System.out.println("Desecho clasificado incorrectamente: -"+niv.getVidasRespIncorrecta()+
+            System.out.println("\nDesecho clasificado incorrectamente: -"+niv.getVidasRespIncorrecta()+
             " vidas.");
             perderVidas(niv);
         }        
     }
 
-    public void ganarPuntos(Nivel niv){
+    //Setters (solo se puede ingresar a ellos a través de clasificar desecho)
+    private void ganarPuntos(Nivel niv){
         noPuntos+=niv.getPuntosRespCorrecta();
     }
 
-    public void perderVidas(Nivel niv){
+    private void perderVidas(Nivel niv){
         noVidasActuales-=niv.getVidasRespIncorrecta();
+    }
+
+    //Getters
+    public String getNombreJug(){
+        return nombre;
+    }
+
+    public int getNoPuntos(){
+        return noPuntos;
+    }
+
+    public int getNoVidas(){
+        return noVidasActuales;
     }
 }

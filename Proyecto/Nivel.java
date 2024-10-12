@@ -3,27 +3,33 @@ package Proyecto;
 public class Nivel {
     private int puntosRespCorrecta;
     private int vidasRespIncorrecta;
-    private int noDesechosGenerar;
     private int minDesechosNiv; //Minimo por nivel
+    private int segundosTurno;
     private String dificultadNiv;
-    private int noDesechosClasificados; //Numero de clasificados
+    private Desechos[][]desechos;   //El primer espacio es para No de Desechos y el segundo para No Jugaodores 
 
-    Nivel(int puntosRespCorrecta,int vidasRespIncorrecta,int noDesechosGenerar, int minDesechosNiv, 
-    String dificultadNiv){
+    public Nivel(int puntosRespCorrecta,int vidasRespIncorrecta, int minDesechosNiv, String dificultadNiv,
+    int segundosTurno)
+    {
         this.puntosRespCorrecta=puntosRespCorrecta;
         this.vidasRespIncorrecta=vidasRespIncorrecta;
-        this.noDesechosGenerar=noDesechosGenerar;
         this.minDesechosNiv=minDesechosNiv;
         this.dificultadNiv=dificultadNiv;
+        this.segundosTurno=segundosTurno;
     }
 
-    public void generarDesechos(){
 
+    //Composición con desechos
+    public void generarDesechos(int numJug,int niv){
+        desechos=new Desechos[10][numJug];
+
+        for (int i=0;i<desechos.length;i++)
+            for (int j=0;j<desechos[i].length;j++)
+                desechos[i][j]=new Desechos((int)(Math.random()*8));
     }
 
-    public boolean verificarMinDesechosNiv(){
-        //Modificar para que se acepte la suma de todos desechos admitidos en todos los contenedores
-        if (minDesechosNiv==Contenedor.getCantTotalDesAdm())
+    public boolean verificarMinDesechosNiv(Jugador jugador){
+        if (jugador.getNoPuntos()>=puntosRespCorrecta*minDesechosNiv)
             return true;
         return false;
     }
@@ -39,5 +45,17 @@ public class Nivel {
 
     public String getDificultad(){
         return dificultadNiv;
+    }
+
+    public Desechos getDesecho(int indice1,int indice2){
+        return (desechos[indice1][indice2]);
+    }
+
+    public int getLeghtDesechosArr(){
+        return (desechos.length);
+    }
+
+    public int getSegundosTurno(){
+        return segundosTurno;
     }
 }
