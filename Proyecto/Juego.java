@@ -79,7 +79,7 @@ public class Juego {
             int contJug=0; //Para contar los jugadores
 
             do{
-                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10)){ //Se verifica que el jugador aun tenga vidas
+                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10) && (jugadores[contJug].getPasaNiv())){ //Se verifica que el jugador aun tenga vidas
                     int resp=-1;
                     limpiarPantalla();
                     System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
@@ -139,15 +139,18 @@ public class Juego {
     }
 
     public boolean puedePasarNivel(){ 
+        //Tras cada nivel se revisa que el jugador cumpla con las condiciones para el siguiente
         for (Jugador jugador:jugadores){
-            if ((niveles[nivelActual].verificarMinDesechosNiv(jugador))&&(jugador.getNoVidas()>0)) {
-                if (nivelActual==2)
-                    System.out.println("Ganaste "+jugador.getNombreJug());
+            if ((niveles[nivelActual].verificarMinDesechosNiv(jugador)==false)||(jugador.getNoVidas()<=0)){
+                jugador.setPasaNiv(false);
+            }
+        }
+        //Si algun jugador restante todavía puede continuar entonces el juego continua
+        for (Jugador jugador:jugadores){
+            if (jugador.getPasaNiv()) {
                 nivelActual++;
                 return true;
             }
-            else
-                System.out.println("Perdiste "+jugador.getNombreJug());
         }    
         return false;
     }
@@ -155,7 +158,7 @@ public class Juego {
     public void limpiarPantalla(){
         for (int i=0;i<=9;i++)
             System.out.println();
-    }
+    }  
 
     //Setters 
     //Para agregar a los jugadores especificados al principio
