@@ -44,7 +44,7 @@ public class Contenedor {
 
         System.out.println("\n\nPara el nivel: "+(niv+1)+"\nEl contenedor con más Desechos ingresados es el de: "+
         contenedorMyr.getTipoDesecho()+"\nCon: "+contenedorMyr.getDesechosGuardados().size()+
-        " desecho(s).");
+        " desecho(s)");
     }
 
     // Metodo para agregar desechos al ArrayList

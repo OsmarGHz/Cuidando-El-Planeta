@@ -83,6 +83,20 @@ public class Desechos {
                     case 3: nombre="Pilas de litio";    break;
                 }
                 break;
+            case 9: //Nombres "Electronicos"
+                switch (numIdDesecho) {
+                    case 0: nombre="TV dañada";         break;
+                    case 1: nombre="Celular dañado";    break;
+                    default:nombre="Monitor dañado";    break;
+                }
+                break;
+            case 10:    nombre="Medicamentos caducados";    break;
+            case 11: //Nombres "Residuos Quimicos"
+                switch (numIdDesecho) {
+                    case 0: break;
+                    default:
+                        break;
+                }
         }
     }
 

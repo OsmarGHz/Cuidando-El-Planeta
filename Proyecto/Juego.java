@@ -3,8 +3,6 @@ package Proyecto;
 import javax.swing.JOptionPane;
 
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Juego {
     private int nivelActual=0;
@@ -26,8 +24,20 @@ public class Juego {
         int resp;
         System.out.println("\t\t\t\t\t\t\"CUIDANDO EL PLANETA\"");
         System.out.println();
+        System.out.println("\t\t\t\t\t\t        _____");
+        System.out.println("\t\t\t\t\t\t    ,-:` \\;',`'-, ");
+        System.out.println("\t\t\t\t\t\t  .'-;_,;  ':-;_,'.");
+        System.out.println("\t\t\t\t\t\t /;   '/    ,  _`.-\\");
+        System.out.println("\t\t\t\t\t\t| '`. (`     /` ` \\`|");
+        System.out.println("\t\t\t\t\t\t|:.  `\\`-.   \\_   / |");
+        System.out.println("\t\t\t\t\t\t|     (   `,  .`\\ ;'|");
+        System.out.println("\t\t\t\t\t\t \\     | .'     `-'/");
+        System.out.println("\t\t\t\t\t\t  `.   ;/        .'");
+        System.out.println("\t\t\t\t\t\t    `'-._____.");
+        System.out.println("\n");
         System.out.println("1: Iniciar Juego");
         System.out.println("0: Salir");
+        System.out.println("Ingrese la opción que desee:");
         do 
             resp=entrada.nextInt();
         while (resp<0 || resp>1);
@@ -45,6 +55,13 @@ public class Juego {
         entrada.nextLine();
     }
 
+    public int pasarTurno(int contJug){
+        System.out.println("Se pasa el turno");
+        jugadores[contJug].setSegundosRest(niveles[nivelActual].getSegundosTurno());
+        contJug++;
+        return contJug;
+    }
+
     public void iniciarJuego(Contenedor[]contenedores){
         mostrarPantallaInicial();
 
@@ -52,47 +69,86 @@ public class Juego {
             for (Contenedor contenedor:contenedores)
                 contenedor.getDesechosGuardados().clear();
 
-        int contDes=0; //Para contar los desechos generados
-        do{
+        for (Jugador jugador:jugadores){
+            //Se reinician los valores para los segundos de turno y el num de desechos clasificados
+            jugador.setSegundosRest(niveles[nivelActual].getSegundosTurno());
+            jugador.setNumDesechosClasif(0);
+        }   
+
+        do{ 
             int contJug=0; //Para contar los jugadores
+
             do{
-                if (jugadores[contJug].getNoVidas()>0){ //Se verifica que el jugador aun tenga vidas
-                    int resp;
+                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10)){ //Se verifica que el jugador aun tenga vidas
+                    int resp=-1;
                     limpiarPantalla();
-                    System.out.println("\n\nTurno de "+jugadores[contJug].getNombreJug());
-        
-                    System.out.println("Puntos: "+jugadores[contJug].getNoPuntos()+"\t\t\t\t\t\tVidas: "+
-                    jugadores[contJug].getNoVidas());
-        
-                    System.out.println("\n\nTe topaste con: "+niveles[nivelActual].getDesecho(contDes,contJug).getNombreDesecho()+"\n");
+                    System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
+
+                    //Se muestran los ontenedores disponibles
+                    System.out.println("\n\nTe topaste con: "+niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug).getNombreDesecho()+"\n");
                     System.out.println("\nDesechar en Contenedor:");
                     for (int i=0;i<contenedores.length;i++)
                         System.out.println((i+1)+": "+contenedores[i].getTipoDesecho());
-                    
-                    do
-                        resp=Integer.parseInt(JOptionPane.showInputDialog("Ingresa el número de Contenedor: "));
-                    while (resp<1||resp>8);
+                        
 
-                    jugadores[contJug].clasificarDesecho(niveles[nivelActual].getDesecho(contDes,contJug), contenedores[resp-1], niveles[nivelActual]);
-                    System.out.println("Presione ENTER...");
-                    entrada.nextLine();
+                    boolean respInvalida=false;
+                    do{
+                        String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugadores[contJug].getSegundosRest());
+                        jugadores[contJug].setSegundosRest(CronometroConJOptionPane.getTiempoRest());
+
+                        if(respString!=null)
+                            resp=Integer.parseInt(respString);
+                        else{
+                            respInvalida=true;  resp=1;
+                            contJug=pasarTurno(contJug);
+                        }
+                    }while (resp<1||resp>8);
+                        
+                    if (respInvalida==false){
+                        jugadores[contJug].clasificarDesecho(niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug), contenedores[resp-1], niveles[nivelActual]);
+                        jugadores[contJug].setNumDesechosClasif(jugadores[contJug].getNumDesechosClasif()+1);
+
+                        if (contenedores[resp-1].verificarDesecho(niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif()-1,contJug))==false){
+                            contJug=pasarTurno(contJug);
+                        }
+
+                        System.out.println("Presione ENTER...");
+                        entrada.nextLine();
+                    }        
                 }
-
-                contJug++;
-            } while(contJug<jugadores.length);  
-            contDes++;
-        }while(contDes<niveles[nivelActual].getLeghtDesechosArr());
+                else
+                    contJug=pasarTurno(contJug);
+            }while(contJug<jugadores.length);
+        } while(quedanJugadoresQuierenDesechar());  
+        
         Contenedor.mostrarMyrInsertados(contenedores,nivelActual);
+        for (Jugador jugador:jugadores){
+            System.out.println();
+            jugador.mostrarStats();
+        }
 
         //Falta poner Planta Tratadora
     }
 
+    public boolean quedanJugadoresQuierenDesechar(){
+        boolean seguir=false;
+        for(Jugador jugador:jugadores)
+            if ((jugador.getNoVidas()>0) && (jugador.getNumDesechosClasif()<10))
+                seguir=true;
+        return seguir;
+    }
+
     public boolean puedePasarNivel(){ 
-        for (Jugador jugador:jugadores)
+        for (Jugador jugador:jugadores){
             if ((niveles[nivelActual].verificarMinDesechosNiv(jugador))&&(jugador.getNoVidas()>0)) {
+                if (nivelActual==2)
+                    System.out.println("Ganaste "+jugador.getNombreJug());
                 nivelActual++;
                 return true;
             }
+            else
+                System.out.println("Perdiste "+jugador.getNombreJug());
+        }    
         return false;
     }
 
