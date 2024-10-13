@@ -340,5 +340,5 @@ public class PlantaTratadora {
             case "Pilas": TratarPilas(); break;
         }
 
-    
+    }
 }
