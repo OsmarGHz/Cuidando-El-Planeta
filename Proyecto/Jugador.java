@@ -5,7 +5,8 @@ public class Jugador {
     private int noVidasActuales=5;
     private int noPuntos=0;
     private int segundosRest;
-    private int numDesechosClasif;
+    private int numDesechosClasif=0;
+    private int numTratados=0;
     private boolean pasaNiv=true;
 
     Jugador(String nombre){
@@ -51,6 +52,10 @@ public class Jugador {
         this.pasaNiv=pasaNiv;
     }
 
+    public void setNumDesechosTrat(int numDesechosTrat){
+        numTratados=numDesechosTrat;
+    }
+
     //Getters
     public String getNombreJug(){
         return nombre;
@@ -74,5 +79,9 @@ public class Jugador {
 
     public boolean getPasaNiv(){
         return pasaNiv;
+    }
+
+    public int getNumDesechosTrat(){
+        return numTratados;
     }
 }

@@ -64,4 +64,8 @@ public class Contenedor {
     public static ArrayList<Desechos> getDesechosGuardados(){
         return desechosGuardados;
     }
+
+    public Desechos getUltimoDesecho(){
+        return desechosGuardados.get(desechosGuardados.size()-1);
+    }
 }
