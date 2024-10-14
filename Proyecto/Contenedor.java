@@ -6,7 +6,7 @@ public class Contenedor {
     private int noDesechoAdmitido; //Lo permite relacionarlo con su respectivo desecho
     private static int cantDesAdmidTotal=0;
     private String tipoDesecho;
-    private ArrayList<Desechos>desechosGuardados=new ArrayList<>();
+    private static ArrayList<Desechos>desechosGuardados=new ArrayList<>();
 
     Contenedor(int noDesechoAdmitido){
         this.noDesechoAdmitido=noDesechoAdmitido;
@@ -61,7 +61,7 @@ public class Contenedor {
         return cantDesAdmidTotal;
     }
 
-    public ArrayList<Desechos> getDesechosGuardados(){
+    public static ArrayList<Desechos> getDesechosGuardados(){
         return desechosGuardados;
     }
 }

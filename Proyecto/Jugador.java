@@ -6,6 +6,7 @@ public class Jugador {
     private int noPuntos=0;
     private int segundosRest;
     private int numDesechosClasif;
+    private boolean pasaNiv=true;
 
     Jugador(String nombre){
         this.nombre=nombre;
@@ -29,12 +30,12 @@ public class Jugador {
         System.out.println("Puntos: "+noPuntos+"\t\t\t\t\t\t\tVidas: "+noVidasActuales);
     }
 
-    //Setters (solo se puede ingresar a ellos a través de clasificar desecho)
-    private void ganarPuntos(Nivel niv){
+    //Setters
+    public void ganarPuntos(Nivel niv){
         noPuntos+=niv.getPuntosRespCorrecta();
     }
 
-    private void perderVidas(Nivel niv){
+    public void perderVidas(Nivel niv){
         noVidasActuales-=niv.getVidasRespIncorrecta();
     }
 
@@ -46,6 +47,10 @@ public class Jugador {
         this.numDesechosClasif=numDesechosClasif;
     }
     
+    public void setPasaNiv(boolean pasaNiv){
+        this.pasaNiv=pasaNiv;
+    }
+
     //Getters
     public String getNombreJug(){
         return nombre;
@@ -65,5 +70,9 @@ public class Jugador {
 
     public int getNumDesechosClasif(){
         return numDesechosClasif;
+    }
+
+    public boolean getPasaNiv(){
+        return pasaNiv;
     }
 }

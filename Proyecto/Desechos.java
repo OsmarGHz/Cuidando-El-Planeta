@@ -92,11 +92,8 @@ public class Desechos {
                 break;
             case 10:    nombre="Medicamentos caducados";    break;
             case 11: //Nombres "Residuos Quimicos"
-                switch (numIdDesecho) {
-                    case 0: break;
-                    default:
-                        break;
-                }
+                    nombre="Disolvente";    break;
+            case 12:    nombre="Tejido animal"; break;
         }
     }
 
