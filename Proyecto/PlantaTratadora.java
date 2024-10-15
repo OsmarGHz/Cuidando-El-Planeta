@@ -30,6 +30,10 @@ public class PlantaTratadora {
             case 6: return(TratarPinturas(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
             case 7: return(TratarBaterías(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
             case 8: return(TratarPilas(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
+                //coloque los dos restantes
+            case 9: return(TratarElectronicos(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
+            case 10: return(TratarQuimicosPeligrosos(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
+            
             default: return(0);
         }
     }
@@ -50,9 +54,9 @@ public class PlantaTratadora {
 
     private int TratarOrganico(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Orgánico\n");
-        System.out.println("1.Uso final\n2.Mantenimento\n3.Compostaje");
-        //respuesta
-        int[] respuestaOrganico = {2, 3, 1};
+       System.out.println("1.Mantenimento\n2.Compostaje\n3.Uso final");
+        //respuesta en orden
+        int[] respuestaOrganico = {1 , 2 , 3};
 
         for(int i = 0; i < respuestaOrganico.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -77,9 +81,9 @@ public class PlantaTratadora {
 
     private int TratarPapelesCarton(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Papeles/Cartón\n");
-        System.out.println("1.Desintegración.\n2.Clasificacion y limpieza.\n3.Produccion de nuevo producto.\n4.Refinamiento de la pulpa.");
-        //respuesta
-        int[] respuestaPapelesCartones = {2, 1, 4, 3};
+        System.out.println("1.Clasificacion y limpieza.\n2.Desintegración.\n3.Refinamiento de la pulpa.\n4.Produccion de nuevo producto.");
+        //respuesta en orden
+        int[] respuestaPapelesCartones = {1 , 2 , 3 , 4 };
 
         for(int i = 0; i < respuestaPapelesCartones.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -105,9 +109,9 @@ public class PlantaTratadora {
     
     private int TratarVidrios(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Vidrios\n");
-        System.out.println("1.Clasificación\n2.Trituracion\n3.Recolección\n4.Modelado\n5.Fusión");
-        //respuesta
-        int[] respuestaVidrios = {3, 1, 2, 5, 4};
+        System.out.println("1.Recolección.\n2.Clasificación.\n3.Trituracion.\n4.Fusión.\n5.Modelado.");
+        //respuesta oredenada
+        int[] respuestaVidrios = {1 , 2 , 3 , 4 , 5};
 
         for(int i = 0; i < respuestaVidrios.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -133,9 +137,9 @@ public class PlantaTratadora {
 
     private int TratarPlásticos(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Plásticos\n");
-        System.out.println("1.Trituracion\n2.Clasificación\n3.Recolección\n4.Modelado\n5.Extrusión");
-        //respuesta
-        int[] respuestaPlásticos = {3, 2, 1, 5, 4};
+        System.out.println("1.Recolección.\n2.Clasificación.\n3.Trituracion.\n4.Extrusión.\n5.Modelado.");
+        //respuesta ordenada
+        int[] respuestaPlásticos = {1 , 2 , 3 , 4 , 5};
 
         for(int i = 0; i < respuestaPlásticos.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -161,9 +165,9 @@ public class PlantaTratadora {
 
     private int TratarChatarraMetal(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Chatarra/Metal\n");
-        System.out.println("1.Clasificación\n2.Fusión\n3.Recolección\n4.Modelado\n5.Trituracion y reduccion de tamaño");
-        //respuesta
-        int[] respuestaChatarraMetal = {3, 1, 2, 5, 4};
+         System.out.println("1.Recolección.\n2.Clasificación.\n3.Fusión\n4.Trituracion y reduccion de tamaño.\n5.Modelado.");
+        //respuesta ordenada
+        int[] respuestaChatarraMetal = {1 , 2 , 3 , 4 , 5 };
 
         for(int i = 0; i < respuestaChatarraMetal.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -189,9 +193,9 @@ public class PlantaTratadora {
 
     private int TratarAceites(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Aceites\n");
-        System.out.println("1.Filtracion y limpieza\n2.Clasificación\n3.Destilación\n4.Producto Nuevo\n5.Recolección\n6.Recuperación");
-        //respuesta
-        int[] respuestaAceites = {5, 2, 1, 3,6, 4};
+        System.out.println("1.Recolección.\n2.Clasificación\n3.Filtracion y limpieza.\n4.Destilación.\n5.Recuperación\n6.Producto Nuevo.");
+        //respuesta ordenada
+        int[] respuestaAceites = {1 , 2 , 3 , 4 , 5 , 6};
 
         for(int i = 0; i < respuestaAceites.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
@@ -217,10 +221,10 @@ public class PlantaTratadora {
 
     private int TratarPinturas(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Pinturas\n");
-        System.out.println("1.Clasificación.\n2.Pretratamiento y limpieza.\n3.Reciclaje de pinturas base de agua/solventes.\n4.Fabricación nuevo producto.");
-        //respuesta
-        int[] respuestaPinturas = {1, 2, 3,4};
-
+        System.out.println("1.Recolección\n2.Clasificacion\n3.Desmontaje\n4.Tratamiento y procesamiento.\n5.Refinacion.");
+        //respuesta ordenada
+        int[] respuestaBaterías = {1, 2 , 3 , 4 , 5};
+        
         for(int i = 0; i < respuestaPinturas.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
             String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugador.getSegundosRest());
@@ -273,10 +277,10 @@ public class PlantaTratadora {
 
     private int TratarPilas(Desechos desecho,Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Pilas\n");
-        System.out.println("1.Uso final\n2.Mantenimento\n3.Compostaje");
+        System.out.println("1.Recoleccion y clasificación.\n2.Desmontaje y separación.\n3.Neutralizacion de electrocitos.\n4 Disposición de residuo no deseables");
         //respuesta
-        int[] respuestaPilas = {2, 3, 1};
-
+        int[] respuestaPilas = {1 , 2 , 3 , 4};
+        
         for(int i = 0; i < respuestaPilas.length ; i++ ){
             System.out.println("Ingresa la respuesta No "+(i+1)+": ");
             String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugador.getSegundosRest());
@@ -298,6 +302,55 @@ public class PlantaTratadora {
             return(respIncorrecto(jugador, niv));
         }
     }
+
+    //Clases restantes
+     private int TratarElectronicos(Desechos desecho,Nivel niv,Jugador jugador){
+        System.out.println("Tipo de desecho: Pilas\n");
+        System.out.println("1.Recoleccion y clasificación.\n2.Desmontaje\n3.Trituración.\n4.Separacioón de materiales.\n5.Recuperacion de metales y plasticos.\n6.Reciclaje de componentes.");
+        //respuesta
+        int[] respuestaElectronicos = {1 , 2 , 3 , 4 , 5 , 6} ;
+
+        for(int i = 0; i < respuestaElectronicos.length ; i++ ){
+            System.out.println("Ingresa la respuesta No "+(i+1)+": ");
+            String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugador.getSegundosRest());
+            jugador.setSegundosRest(CronometroConJOptionPane.getTiempoRest());
+
+            if(respString!=null)
+                respuestaTratadora.add(Integer.parseInt(respString));
+            else{
+                respuestaTratadora.clear();
+                return (0);
+            }
+        }
+
+        if (PlantaTratadora.compararRespuesta(respuestaTratadora, respuestaElectronicos)) {
+            System.out.println("La primera secuencia coincide. +"+niv.getPuntosRespCorrecta()+" pts.");
+            jugador.ganarPuntos(niv);
+            return (respCorrecta(jugador,niv));
+        } else{     
+            return(respIncorrecto(jugador, niv));
+        }
+    }
+
+    private int TratarQuimicosPeligrosos(Desechos desecho,Nivel niv,Jugador jugador){
+        System.out.println("Tipo de desecho: Pilas\n");
+        System.out.println("1.Recoleccion segura y almacenamiento.\n2.Desmontaje especializado\n3.Extraccion de gases refrigerantes.\n4.Tratamiento de mercurio.\n5.Procesos de incineración controlada.\n6.Disposición final de instalaciones seguras.");
+        //respuesta
+        int[] respuestaTratarQuimicosPeligrosos = {1 , 2 , 3 , 4 , 5 , 6} ;
+
+        for(int i = 0; i < respuestaTratarQuimicosPeligrosos.length ; i++ ){
+            System.out.println("Ingresa la respuesta No "+(i+1)+": ");
+            String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugador.getSegundosRest());
+            jugador.setSegundosRest(CronometroConJOptionPane.getTiempoRest());
+
+            if(respString!=null)
+                respuestaTratadora.add(Integer.parseInt(respString));
+            else{
+                respuestaTratadora.clear();
+                return (0);
+            }
+        }
+
 
     //Muestra mensaje si no se clasifica correctamente
     public int respIncorrecto(Jugador jugador,Nivel niv){
