@@ -16,7 +16,7 @@ public class Desechos {
                 switch (numIdDesecho){
                     case 0: nombre="Botellas de vidrio";    break;
                     case 1: nombre="Frascos de vidrio";     break;
-                    case 2: nombre="Ventana de vidrio";     break;
+                    case 2: nombre="Ventana";               break;
                     case 3: nombre="Vasos de vidrio";       break;
                     case 4: nombre="Botellines";            break;
                 }
@@ -24,7 +24,7 @@ public class Desechos {
             case 4: //Nombres "Chatarra/Metal"
                 switch (numIdDesecho){
                     case 0: nombre="Latas de aluminio";     break;
-                    case 1: nombre="Tuberia";               break;
+                    case 1: nombre="Fragmento de tubería";  break;
                     case 2: nombre="Tostadora";             break;
                     case 3: nombre="Cables eléctricos";     break;
                 }
@@ -78,7 +78,7 @@ public class Desechos {
         switch (numTipoDesecho) {
             case 0: //Nombres "Organicos"
                 switch (numIdDesecho){
-                    case 0: nombre="Cascaras de frutas";    break;
+                    case 0: nombre="Cáscaras de frutas";    break;
                     case 1: nombre="Cáscaras de Verduras";  break;
                     case 2: nombre="Sobras de comida";      break;
                     default: nombre="Hojas secas";           break;
@@ -86,19 +86,19 @@ public class Desechos {
                 break;
             case 1: //Nombres "Papeles/Cartones"
                 switch (numIdDesecho){
-                    case 0: nombre="Periodico";             break;
+                    case 0: nombre="Periódico";             break;
                     case 1: nombre="Revistas";              break;
                     case 2: nombre="Hojas de papel usadas"; break;
                     case 3: nombre="Pedazos de cartón";     break;
-                    default: nombre="Caja de carton";break;
+                    default: nombre="Caja de cartón";break;
                 }
                 break;
             case 3: //Nombres "Plasticos"
                 switch (numIdDesecho){
                     case 1: nombre="Bolsas";                break;
                     case 2: nombre="Juguetes";              break;
-                    case 3: nombre="Envases de plastico";   break;
-                    default: nombre="Botellas de plastico";  break;
+                    case 3: nombre="Envases de plástico";   break;
+                    default: nombre="Botellas de plástico";  break;
                 }
                 break;
         }

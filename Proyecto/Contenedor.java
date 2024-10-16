@@ -22,7 +22,7 @@ public class Contenedor {
             case 7: tipoDesecho="Baterías";         break;
             case 8: tipoDesecho="Pilas";            break;
             case 9: tipoDesecho="Electrónicos";     break;
-            case 10:tipoDesecho="Medicamento";      break;
+            case 10:tipoDesecho="Medicamentos";      break;
             case 11:tipoDesecho="Residuos Químicos de Laboratorio"; break;
             case 12:tipoDesecho="Residuos Biológicos";              break;
         }

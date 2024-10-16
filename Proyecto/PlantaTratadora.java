@@ -16,7 +16,7 @@ public class PlantaTratadora {
 
     public int identificarDesecho(Nivel niv,Jugador jugador,int numJug){
         System.out.println("Nombre del desecho: " +desechos[numJug].get(jugador.getNumDesechosTrat()).getNombreDesecho());
-        System.out.println("\n**Ingresa los numeros en el orden correcto para tratar los desechos**\n");
+        System.out.println("\n**Ingresa los números en el orden correcto para tratar los desechos**\n");
 
         switch (desechos[numJug].get(jugador.getNumDesechosTrat()).getNumTipoDesecho()){
             case 0: return(TratarOrganico(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador)); 
@@ -51,6 +51,7 @@ public class PlantaTratadora {
         return true; 
     }
 
+    //Maneras de tratar los desechos
     private int TratarOrganico(Desechos desecho, Nivel niv,Jugador jugador){ 
         System.out.println("Tipo de desecho: Orgánico\n");
         System.out.println("1: Uso final\n2: Mantenimento\n3: Compostaje");
@@ -80,7 +81,7 @@ public class PlantaTratadora {
 
     private int TratarPapelesCarton(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Papeles/Cartón\n");
-        System.out.println("1: Desintegración\n2: Clasificacion y limpieza\n3: Produccion de nuevo producto\n4: Refinamiento de la pulpa");
+        System.out.println("1: Desintegración\n2: Clasificación y limpieza\n3: Producción de nuevo producto\n4: Refinamiento de la pulpa");
         //respuesta
         int[] respuestaPapelesCartones = {2, 1, 4, 3};
 
@@ -108,7 +109,7 @@ public class PlantaTratadora {
     
     private int TratarVidrios(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Vidrios\n");
-        System.out.println("1: Clasificación\n2: Trituracion\n3: Recolección\n4: Modelado\n5: Fusión");
+        System.out.println("1: Clasificación\n2: Trituración\n3: Recolección\n4: Modelado\n5: Fusión");
         //respuesta
         int[] respuestaVidrios = {3, 1, 2, 5, 4};
 
@@ -162,7 +163,7 @@ public class PlantaTratadora {
 
     private int TratarChatarraMetal(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Chatarra/Metal\n");
-        System.out.println("1: Clasificación\n2: Fusión\n3: Recolección\n4: Modelado\n5: Trituracion y reduccion de tamaño");
+        System.out.println("1: Clasificación\n2: Fusión\n3: Recolección\n4: Modelado\n5: Trituración y reducción de tamaño");
         //respuesta
         int[] respuestaChatarraMetal = {3, 1, 2, 5, 4};
 
@@ -189,7 +190,7 @@ public class PlantaTratadora {
 
     private int TratarAceites(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Aceites\n");
-        System.out.println("1: Filtracion y limpieza\n2: Clasificación\n3: Destilación\n4: Producto Nuevo\n5: Recolección\n6: Recuperación");
+        System.out.println("1: Filtración y limpieza\n2: Clasificación\n3: Destilación\n4: Producto Nuevo\n5: Recolección\n6: Recuperación");
         //respuesta
         int[] respuestaAceites = {5, 2, 1, 3,6, 4};
 
@@ -243,7 +244,7 @@ public class PlantaTratadora {
 
     private int TratarBaterías(Desechos desecho, Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Baterías\n");
-        System.out.println("1: Recolección\n2: Clasificación\n3: Desmontaje\n4: Tratamiento y procesamiento\n5: Refinacion");
+        System.out.println("1: Recolección\n2: Clasificación\n3: Desmontaje\n4: Tratamiento y procesamiento\n5: Refinación");
         //respuesta
         int[] respuestaBaterías = {1,2,3,4,5};
 
@@ -268,7 +269,7 @@ public class PlantaTratadora {
         }
     }
 
-    private int TratarPilas(Desechos desecho,Nivel niv,Jugador jugador){
+    private int TratarPilas(Desechos desecho,Nivel niv,Jugador jugador){ //Pilas checar
         System.out.println("Tipo de desecho: Pilas\n");
         System.out.println("1: Uso final\n2: Mantenimento\n3: Compostaje");
         //respuesta
@@ -298,7 +299,7 @@ public class PlantaTratadora {
     
     private int TratarElectronicos(Desechos desecho,Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Electrónicos\n");
-        System.out.println("1.Recoleccion y clasificación.\n2.Desmontaje\n3.Trituración.\n4.Separacioón de materiales.\n5.Recuperacion de metales y plasticos.\n6.Reciclaje de componentes.");
+        System.out.println("1: Recoleccion y clasificación.\n2: Desmontaje\n3: Trituración.\n4: Separacioón de materiales.\n5: Recuperación de metales y plásticos.\n6: Reciclaje de componentes.");
         //respuesta
         int[] respuestaElectronicos = {1 , 2 , 3 , 4 , 5 , 6} ;
 
@@ -322,9 +323,9 @@ public class PlantaTratadora {
         }
     }
 
-    private int TratarMedicamentos(Desechos desecho, Nivel niv,Jugador jugador){
-        System.out.println("Tipo de desecho: Aceites\n");
-        System.out.println("1: Separacion de envases.\n2: Clasificación.\n3: Neutralizacion.\n4: GEestion de residuos toxicos \n5: Recolección de medicamentos.\n6: Tratamiento de residuos liquidos.\n7:Disposición final");
+    private int TratarMedicamentos(Desechos desecho, Nivel niv,Jugador jugador){ //Checar procesos
+        System.out.println("Tipo de desecho: Medicamentos\n");
+        System.out.println("1: Separación de envases.\n2: Clasificación.\n3: Neutralización.\n4: Gestión de residuos tóxicos \n5: Recolección de medicamentos.\n6: Tratamiento de residuos liquidos.\n7:Disposición final");
         //respuesta
         int[] respuestaMedicamentos = {5, 2, 1, 3,6, 4, 7};
 
@@ -351,7 +352,7 @@ public class PlantaTratadora {
     
     private int TratarQuimicosLaboratorio(Desechos desecho,Nivel niv,Jugador jugador){
         System.out.println("Tipo de desecho: Químicos de Laboratorio\n");
-        System.out.println("1.Recoleccion segura y almacenamiento.\n2.Separación\n3.Procesos de incineración controlada.\n4.Disposición final de instalaciones seguras.");
+        System.out.println("1: Recolección segura y almacenamiento.\n2: Separación\n3: Procesos de incineración controlada.\n4: Disposición final de instalaciones seguras.");
         //respuesta
         int[] respuestaTratarQuimicosPeligrosos = {1 , 2 , 3 , 4 } ;
 
@@ -376,8 +377,8 @@ public class PlantaTratadora {
     }
     
     private int TratarTejidoBiológico(Desechos desecho, Nivel niv,Jugador jugador){
-        System.out.println("Tipo de desecho: Aceites\n");
-        System.out.println("1: Desinfeccion inicial.\n2: Clasificación de residuos biológicos.\n3: Metodos de eliminación.\n4: Disposición final \n5: Recolección segura.\n6: Tratamiento de residuos liquidos.");
+        System.out.println("Tipo de desecho: Residuo Biológico\n");
+        System.out.println("1: Desinfección inicial.\n2: Clasificación de residuos biológicos.\n3: Metodos de eliminación.\n4: Disposición final \n5: Recolección segura.\n6: Tratamiento de residuos líquidos.");
         //respuesta
         int[] respuestaTejidoBiológico = {5, 2, 1, 3,6, 4};
 

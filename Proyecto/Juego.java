@@ -10,7 +10,7 @@ public class Juego {
     private Nivel[]niveles=new Nivel[3];
     private Jugador[]jugadores;
 
-    private Scanner entrada=new Scanner(System.in);
+    public Scanner entrada=new Scanner(System.in);
 
     //Contructor de Juego para modificar requerimientos de los niveles (Composición)
     Juego(){
@@ -52,7 +52,6 @@ public class Juego {
         //Método abstracto de Niveles y Polimorfismo
         niveles[nivelActual].presentacionNivel();
         System.out.println("\n\nPresione ENTER para continuar...");
-        entrada.nextLine();
         entrada.nextLine();
     }
 
@@ -193,8 +192,10 @@ public class Juego {
     //Setters 
     //Para agregar a los jugadores especificados al principio
     public void setNumeroJugadores(){
-        do 
-            numJugadores=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de JUGADORES (Máximo 5): "));
+        do {
+            System.out.println("\n\nIngrese el número de JUGADORES (Máximo 5): ");
+            numJugadores=entrada.nextInt();
+        }   
         while (numJugadores<1 || numJugadores>5);
     }
 
@@ -236,9 +237,12 @@ public class Juego {
             juego.setNumeroJugadores();                              
             Jugador[]jugadoresIngresados=new Jugador[juego.getNumJugadores()];
 
+            System.out.println();
             for (int i=0;i<juego.getNumJugadores();i++){
-                jugadoresIngresados[i]=new Jugador(JOptionPane.showInputDialog("Ingrese su nombre (Jugador "+
-                (i+1)+")"));
+                juego.entrada.nextLine();
+                System.out.println("Ingrese su nombre (Jugador "+(i+1)+"): ");
+                String nombre=juego.entrada.nextLine();
+                jugadoresIngresados[i]=new Jugador(nombre);
             }
             juego.setJugadores(jugadoresIngresados);
 
