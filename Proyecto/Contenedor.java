@@ -6,7 +6,7 @@ public class Contenedor {
     private int noDesechoAdmitido; //Lo permite relacionarlo con su respectivo desecho
     private static int cantDesAdmidTotal=0;
     private String tipoDesecho;
-    private static ArrayList<Desechos>desechosGuardados=new ArrayList<>();
+    private ArrayList<Desechos>desechosGuardados=new ArrayList<>();
 
     Contenedor(int noDesechoAdmitido){
         this.noDesechoAdmitido=noDesechoAdmitido;
@@ -21,6 +21,10 @@ public class Contenedor {
             case 6: tipoDesecho="Pinturas";         break;
             case 7: tipoDesecho="Baterías";         break;
             case 8: tipoDesecho="Pilas";            break;
+            case 9: tipoDesecho="Electrónicos";     break;
+            case 10:tipoDesecho="Medicamento";      break;
+            case 11:tipoDesecho="Residuos Químicos de Laboratorio"; break;
+            case 12:tipoDesecho="Residuos Biológicos";              break;
         }
     }
 
@@ -33,18 +37,17 @@ public class Contenedor {
     }
 
     public static void mostrarMyrInsertados(Contenedor[] contenedores,int niv){
-        int myr=contenedores[0].getDesechosGuardados().size();
-        Contenedor contenedorMyr=contenedores[0];
+        System.out.println("\n\nPara el nivel: "+(niv+1)+"\n\nLos contenedores con más Desechos ingresados fueron: ");
+        int myr=contenedores[0].desechosGuardados.size();
 
         for (int i=1;i<contenedores.length;i++)
-            if (contenedores[i].getDesechosGuardados().size()>myr){
-                myr=contenedores[i].getDesechosGuardados().size();
-                contenedorMyr=contenedores[i];
-            }
+            if (contenedores[i].desechosGuardados.size()>myr)
+                myr=contenedores[i].desechosGuardados.size();
 
-        System.out.println("\n\nPara el nivel: "+(niv+1)+"\nEl contenedor con más Desechos ingresados es el de: "+
-        contenedorMyr.getTipoDesecho()+"\nCon: "+contenedorMyr.getDesechosGuardados().size()+
-        " desecho(s)");
+        for (int i=0;i<contenedores.length;i++)
+            if (contenedores[i].desechosGuardados.size()==myr){
+                System.out.println(contenedores[i].getTipoDesecho()+" con: "+myr+" desecho(s)");
+            }
     }
 
     // Metodo para agregar desechos al ArrayList
@@ -61,7 +64,7 @@ public class Contenedor {
         return cantDesAdmidTotal;
     }
 
-    public static ArrayList<Desechos> getDesechosGuardados(){
+    public ArrayList<Desechos> getDesechosGuardados(){
         return desechosGuardados;
     }
 

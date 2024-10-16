@@ -10,22 +10,7 @@ public class Desechos {
         numIdDesecho=(int)(Math.random()*4);
          
         switch (numTipoDesecho) {
-            case 0: //Nombres "Organicos"
-                switch (numIdDesecho){
-                    case 0: nombre="Cascaras de frutas";    break;
-                    case 1: nombre="Cáscaras de Verduras";  break;
-                    case 2: nombre="Sobras de comida";      break;
-                    case 3: nombre="Hojas secas";           break;
-                }
-                break;
-            case 1: //Nombres "Papeles/Cartones"
-                switch (numIdDesecho){
-                    case 0: nombre="Periodico";             break;
-                    case 2: nombre="Revistas";              break;
-                    case 1: nombre="Caja de carton";        break;
-                    default: nombre="Hojas de papel usadas";break;
-                }
-                break;
+            
             case 2: //Nombres "Vidrios"
                 numIdDesecho=(int)(Math.random()*5);
                 switch (numIdDesecho){
@@ -34,14 +19,6 @@ public class Desechos {
                     case 2: nombre="Ventana de vidrio";     break;
                     case 3: nombre="Vasos de vidrio";       break;
                     case 4: nombre="Botellines";            break;
-                }
-                break;
-            case 3: //Nombres "Plasticos"
-                switch (numIdDesecho){
-                    case 0: nombre="Botellas de plastico";  break;
-                    case 1: nombre="Bolsas";                break;
-                    case 2: nombre="Juguetes";              break;
-                    case 3: nombre="Envases de plastico";   break;
                 }
                 break;
             case 4: //Nombres "Chatarra/Metal"
@@ -90,10 +67,40 @@ public class Desechos {
                     default:nombre="Monitor dañado";    break;
                 }
                 break;
-            case 10:    nombre="Medicamentos caducados";    break;
-            case 11: //Nombres "Residuos Quimicos"
-                    nombre="Disolvente";    break;
-            case 12:    nombre="Tejido animal"; break;
+            case 10: nombre="Medicamentos caducados";   break; //Nombre "Medicamentos"
+            case 11: nombre="Disolvente";               break; //Nombre "Residuo Quimico de Laboratorio"
+            case 12: nombre="Tejido animal";            break; //Nombre "Residuos Biológicos"
+        }
+    }
+
+    Desechos(int numTipoDesecho,int numIdDesecho){
+        this.numTipoDesecho=numTipoDesecho;
+        switch (numTipoDesecho) {
+            case 0: //Nombres "Organicos"
+                switch (numIdDesecho){
+                    case 0: nombre="Cascaras de frutas";    break;
+                    case 1: nombre="Cáscaras de Verduras";  break;
+                    case 2: nombre="Sobras de comida";      break;
+                    default: nombre="Hojas secas";           break;
+                }
+                break;
+            case 1: //Nombres "Papeles/Cartones"
+                switch (numIdDesecho){
+                    case 0: nombre="Periodico";             break;
+                    case 1: nombre="Revistas";              break;
+                    case 2: nombre="Hojas de papel usadas"; break;
+                    case 3: nombre="Pedazos de cartón";     break;
+                    default: nombre="Caja de carton";break;
+                }
+                break;
+            case 3: //Nombres "Plasticos"
+                switch (numIdDesecho){
+                    case 1: nombre="Bolsas";                break;
+                    case 2: nombre="Juguetes";              break;
+                    case 3: nombre="Envases de plastico";   break;
+                    default: nombre="Botellas de plastico";  break;
+                }
+                break;
         }
     }
 

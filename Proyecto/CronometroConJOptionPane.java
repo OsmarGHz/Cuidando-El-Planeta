@@ -67,10 +67,9 @@ public class CronometroConJOptionPane {
         dialogo.setLocationRelativeTo(null); // Centrar la ventana
         dialogo.setVisible(true);
 
-        // Bloquea el hilo hasta que el diálogo se cierre
         while (dialogo.isVisible()) {
             try {
-                Thread.sleep(100); // Pausa breve para no bloquear la interfaz
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

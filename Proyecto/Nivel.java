@@ -1,31 +1,28 @@
 package Proyecto;
 
-public class Nivel {
+public abstract class Nivel {
     private int puntosRespCorrecta;
     private int vidasRespIncorrecta;
     private int minDesechosNiv; //Minimo por nivel
     private int segundosTurno;
-    private String dificultadNiv;
-    private Desechos[][]desechos;   //El primer espacio es para No de Desechos y el segundo para No Jugaodores 
+    protected Desechos[][]desechos=new Desechos[10][];   //El primer espacio es para No de Desechos y el segundo para No Jugaodores 
 
-    public Nivel(int puntosRespCorrecta,int vidasRespIncorrecta, int minDesechosNiv, String dificultadNiv,
+    public Nivel(int puntosRespCorrecta,int vidasRespIncorrecta, int minDesechosNiv,
     int segundosTurno)
     {
         this.puntosRespCorrecta=puntosRespCorrecta;
         this.vidasRespIncorrecta=vidasRespIncorrecta;
         this.minDesechosNiv=minDesechosNiv;
-        this.dificultadNiv=dificultadNiv;
         this.segundosTurno=segundosTurno;
     }
 
+    public abstract void presentacionNivel();
 
     //Composición con desechos
-    public void generarDesechos(int numJug,int niv){
-        desechos=new Desechos[10][numJug];
+    public abstract void generarDesechos(int numJug);
 
-        for (int i=0;i<desechos.length;i++)
-            for (int j=0;j<desechos[i].length;j++)
-                desechos[i][j]=new Desechos((int)(Math.random()*8));
+    public void setDesechos(int numJug){
+        this.desechos=new Desechos[10][numJug];
     }
 
     public boolean verificarMinDesechosNiv(Jugador jugador){
@@ -41,10 +38,6 @@ public class Nivel {
     
     public int getVidasRespIncorrecta(){
         return vidasRespIncorrecta;
-    }
-
-    public String getDificultad(){
-        return dificultadNiv;
     }
 
     public Desechos getDesecho(int indice1,int indice2){

@@ -10,13 +10,14 @@ public class Juego {
     private Nivel[]niveles=new Nivel[3];
     private Jugador[]jugadores;
 
-    Scanner entrada=new Scanner(System.in);
+    private Scanner entrada=new Scanner(System.in);
 
     //Contructor de Juego para modificar requerimientos de los niveles (Composición)
     Juego(){
-        niveles[0]=new Nivel(10, 1, 7, "Baja",60);
-        niveles[1]=new Nivel(15, 1, 8, "Media",40);
-        niveles[2]=new Nivel(20, 2, 9, "Alta",30);
+        //Polimorfismo y (Clase Nivel tipo Abstract)
+        niveles[0]=new Nivel1(10, 1, 7,60);
+        niveles[1]=new Nivel2(15, 1, 8,40);
+        niveles[2]=new Nivel3(20, 2, 9,30);
     }
 
     //Menú
@@ -46,10 +47,10 @@ public class Juego {
         return false;
     }
 
-    public void mostrarPantallaInicial(){
+    public void mostrarPantallaInicialNivel(){
         limpiarPantalla();
-        System.out.println("NIVEL: "+(nivelActual+1)+"\n\nDificultad: "+
-        (niveles[nivelActual].getDificultad()));
+        //Método abstracto de Niveles y Polimorfismo
+        niveles[nivelActual].presentacionNivel();
         System.out.println("\n\nPresione ENTER para continuar...");
         entrada.nextLine();
         entrada.nextLine();
@@ -57,6 +58,8 @@ public class Juego {
 
     public int pasarTurno(int contJug){
         System.out.println("Se pasa el turno");
+        System.out.println("Presione ENTER...");
+        entrada.nextLine();
         //Se reinicia el contador del juagador antes de pasar al siguiente
         jugadores[contJug].setSegundosRest(niveles[nivelActual].getSegundosTurno());
         contJug++;
@@ -64,10 +67,11 @@ public class Juego {
     }
 
     public void iniciarJuego(Contenedor[]contenedores,PlantaTratadora planta){
-        mostrarPantallaInicial();
+        mostrarPantallaInicialNivel();
 
-        if (nivelActual>0) //Si el nivelActual es mayor a 0, se "retiran" los desechos
-            Contenedor.getDesechosGuardados().clear();
+        if (nivelActual>0) //Si el nivelActual es mayor a 0, se "retiran" los desechos del contenedor
+            for (Contenedor contenedor:contenedores)
+                contenedor.getDesechosGuardados().clear();
 
         for (Jugador jugador:jugadores){
             //Se reinician los valores para los segundos de turno y el num de desechos clasificados
@@ -85,7 +89,7 @@ public class Juego {
                     limpiarPantalla();
                     System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
 
-                    //Se muestran los ontenedores disponibles
+                    //Se muestran los contenedores disponibles
                     System.out.println("\n\nTe topaste con: "+niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug).getNombreDesecho()+"\n");
                     System.out.println("\nDesechar en Contenedor:");
                     for (int i=0;i<contenedores.length;i++)
@@ -121,27 +125,31 @@ public class Juego {
                     }        
                 }
                 //Para tratar desechos
-                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosTrat()<planta.getSizeArr_ArrayListDesecho(contJug)) && jugadores[contJug].getPasaNiv()){
-                    System.out.println("Planta Tratadora...\nPresione ENTER...");
+                if ((contJug<jugadores.length)&&((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosTrat()<planta.getSizeArr_ArrayListDesecho(contJug)) && jugadores[contJug].getPasaNiv())){
+                    System.out.println("\n\nPlanta Tratadora...\nPresione ENTER...");
                     entrada.nextLine();
-                    System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
+                    System.out.print("\nTurno de ");    jugadores[contJug].mostrarStats();
+                    System.out.println();
                     if (planta.identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
                         contJug=pasarTurno(contJug);
                 }   
-                else if (jugadores[contJug].getNumDesechosTrat()!=0){
-                    System.out.println("Hola");
+                else if ((contJug<jugadores.length)&&(jugadores[contJug].getNumDesechosTrat()!=0)){
                     contJug=pasarTurno(contJug);
                 }
+                System.out.println("Presione ENTER...");
+                entrada.nextLine();
             }while(contJug<jugadores.length);
-        } while(quedanJugadoresQuierenDesechar()); 
+        } while(quedanJugadoresQuierenDesechar()||quedanJugadoresQuierenTratar(planta)); 
 
-        //Se muestra que contenedro tuvo más desechos
+        //Se muestra que contenedor tuvo más desechos
         Contenedor.mostrarMyrInsertados(contenedores,nivelActual);
         //Se imprimen stats finales
         for (Jugador jugador:jugadores){
             System.out.println();
             jugador.mostrarStats();
         }
+        System.out.println("Presione ENTER...");
+        entrada.nextLine();
     }
 
     public boolean quedanJugadoresQuierenDesechar(){
@@ -150,6 +158,14 @@ public class Juego {
             if ((jugador.getNoVidas()>0) && (jugador.getNumDesechosClasif()<10))
                 seguir=true;
         return seguir;
+    }
+
+    public boolean quedanJugadoresQuierenTratar(PlantaTratadora planta){
+        boolean seguir=false;
+        for (int i=0;i<jugadores.length;i++)
+            if ((jugadores[i].getNoVidas()>0) && (jugadores[i].getNumDesechosTrat()<planta.getSizeArr_ArrayListDesecho(i)))
+                seguir=true;
+        return(seguir);
     }
 
     public boolean puedePasarNivel(){ 
@@ -170,7 +186,7 @@ public class Juego {
     }
 
     public void limpiarPantalla(){
-        for (int i=0;i<=9;i++)
+        for (int i=0;i<=15;i++)
             System.out.println();
     }  
 
@@ -209,7 +225,7 @@ public class Juego {
 
     public static void main(String[] args) {
         Juego juego=new Juego();
-        Contenedor[]contenedores=new Contenedor[8];
+        Contenedor[]contenedores=new Contenedor[12];
 
         //Se inicializan los contenedores
         for (int i=0;i<contenedores.length;i++)
@@ -229,8 +245,9 @@ public class Juego {
 
             PlantaTratadora planta=new PlantaTratadora(juego.numJugadores);
             do{
+                juego.niveles[juego.getNivelActual()].setDesechos(juego.getNumJugadores());
                 //Se instancian los desechos
-                juego.niveles[juego.getNivelActual()].generarDesechos(juego.getNumJugadoresRest(),juego.getNivelActual()); 
+                juego.niveles[juego.getNivelActual()].generarDesechos(juego.getNumJugadoresRest()); 
 
                 //Inicio del Juego
                 juego.iniciarJuego(contenedores,planta);
