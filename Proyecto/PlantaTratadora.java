@@ -5,16 +5,11 @@ import java.util.Scanner;
 
 public class PlantaTratadora {
     private Scanner entrada = new Scanner(System.in);
-    private static ArrayList<Desechos>[] desechos;
+    private ArrayList<Desechos>[] desechos;
     private  static ArrayList<Integer> respuestaTratadora= new ArrayList<>();
 
-    public PlantaTratadora(int numJug){
-        desechos=(ArrayList<Desechos>[])new ArrayList[numJug];
-        for (int i=0;i<numJug;i++)
-            desechos[i]=new ArrayList<>();
-    }
 
-    public int identificarDesecho(Nivel niv,Jugador jugador,int numJug){
+    public int identificarDesecho(Nivel niv,Jugador jugador, int numJug){
         System.out.println("Nombre del desecho: " +desechos[numJug].get(jugador.getNumDesechosTrat()).getNombreDesecho());
         System.out.println("\n**Ingresa los números en el orden correcto para tratar los desechos**\n");
 
@@ -28,10 +23,10 @@ public class PlantaTratadora {
             case 6: return(TratarPinturas(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
             case 7: return(TratarBaterías(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
             case 8: return(TratarPilas(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
-            case 9: return(TratarElectronicos(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
-            case 10: return(TratarMedicamentos(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
-            case 11: return(TratarQuimicosLaboratorio(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
-            case 12: return(TratarTejidoBiológico(desechos[numJug].get(desechos[numJug].size()-1),niv,jugador));
+            case 9: return(TratarElectronicos(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
+            case 10: return(TratarMedicamentos(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
+            case 11: return(TratarQuimicosLaboratorio(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
+            case 12: return(TratarTejidoBiológico(desechos[numJug].get(jugador.getNumDesechosTrat()),niv,jugador));
             
             default: return(0);
         }
@@ -269,11 +264,11 @@ public class PlantaTratadora {
         }
     }
 
-    private int TratarPilas(Desechos desecho,Nivel niv,Jugador jugador){ //Pilas checar
+    private int TratarPilas(Desechos desecho,Nivel niv,Jugador jugador){ 
         System.out.println("Tipo de desecho: Pilas\n");
-        System.out.println("1: Uso final\n2: Mantenimento\n3: Compostaje");
+        System.out.println("1: Desmontaje mecánico\n2: Recolección\n3: Clasificación\n4: Tratamiento\n5: Disposición Final\n6: Tirar partes tóxicas a vertedero especializado");
         //respuesta
-        int[] respuestaPilas = {2, 3, 1};
+        int[] respuestaPilas = {2, 3, 1,4,6,5};
 
         System.out.println();
         for(int i = 0; i < respuestaPilas.length ; i++ ){
@@ -437,5 +432,12 @@ public class PlantaTratadora {
 
     public int getSizeArr_ArrayListDesecho(int numJug){
         return desechos[numJug].size();
+    }
+
+    public void setArregloArrListDesechos(int numJug){
+        desechos=new ArrayList[numJug];
+
+        for (int i=0;i<numJug;i++)
+            desechos[i]=new ArrayList<>();
     }
 }

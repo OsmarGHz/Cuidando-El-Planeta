@@ -41,6 +41,7 @@ public class Nivel2 extends Nivel{
                         //Residuos Niv 1
                         desechos[i][j]=new Desechos(bifurca2,(int)(Math.random()*5));
                     else
+                        //Residuos restantes
                         desechos[i][j]=new Desechos(bifurca2);
                 }     
             }

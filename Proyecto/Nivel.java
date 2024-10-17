@@ -1,9 +1,10 @@
 package Proyecto;
 
+//clase abstracta
 public abstract class Nivel {
     private int puntosRespCorrecta;
     private int vidasRespIncorrecta;
-    private int minDesechosNiv; //Minimo por nivel
+    private int minDesechosNiv; //Mínimo por nivel
     private int segundosTurno;
     protected Desechos[][]desechos=new Desechos[10][];   //El primer espacio es para No de Desechos y el segundo para No Jugaodores 
 
@@ -18,17 +19,18 @@ public abstract class Nivel {
 
     public abstract void presentacionNivel();
 
-    //Composición con desechos
+    //Composición con desechos (cada clase Nivel crea los Desechos que se ingresan en desechos[][])
     public abstract void generarDesechos(int numJug);
 
-    public void setDesechos(int numJug){
-        this.desechos=new Desechos[10][numJug];
-    }
-
     public boolean verificarMinDesechosNiv(Jugador jugador){
-        if (jugador.getNoPuntos()>=puntosRespCorrecta*minDesechosNiv)
+        if (jugador.getNumDesechosClasif()>=minDesechosNiv)
             return true;
         return false;
+    }
+
+    //Setter
+    public void setDesechos(int numJug){
+        this.desechos=new Desechos[10][numJug];
     }
 
     //Getters

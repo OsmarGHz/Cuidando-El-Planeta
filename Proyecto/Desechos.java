@@ -73,6 +73,7 @@ public class Desechos {
         }
     }
 
+    //Especifico para desechos Nivel 1
     Desechos(int numTipoDesecho,int numIdDesecho){
         this.numTipoDesecho=numTipoDesecho;
         switch (numTipoDesecho) {
@@ -104,6 +105,7 @@ public class Desechos {
         }
     }
 
+    //Getters
     public int getNumTipoDesecho(){
         return numTipoDesecho;
     }

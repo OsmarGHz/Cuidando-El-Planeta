@@ -19,6 +19,7 @@ public class Nivel3 extends Nivel{
                 int bifurca=(int)(Math.random()*3);
                 
                 if (bifurca==1)
+                    //Te da los residuos especiales
                     desechos[i][j]=new Desechos((int)((Math.random()*3)+10));
                 else{
                     int bifurca2=(int)((Math.random()*13));
@@ -27,6 +28,7 @@ public class Nivel3 extends Nivel{
                         //Residuos Niv 1
                         desechos[i][j]=new Desechos(bifurca2,(int)(Math.random()*5));
                     else
+                        //Te da el resto de residuos
                         desechos[i][j]=new Desechos(bifurca2);
                 }    
             }

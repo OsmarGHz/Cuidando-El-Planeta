@@ -8,6 +8,7 @@ public class Jugador {
     private int numDesechosClasif=0;
     private int numTratados=0;
     private boolean pasaNiv=true;
+    private PlantaTratadora planta;
 
     Jugador(String nombre){
         this.nombre=nombre;
@@ -56,6 +57,10 @@ public class Jugador {
         numTratados=numDesechosTrat;
     }
 
+    public void setPlanta(PlantaTratadora planta){
+        this.planta=planta;
+    }
+
     //Getters
     public String getNombreJug(){
         return nombre;
@@ -83,5 +88,9 @@ public class Jugador {
 
     public int getNumDesechosTrat(){
         return numTratados;
+    }
+
+    public PlantaTratadora getPlanta(){
+        return planta;
     }
 }

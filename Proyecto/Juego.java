@@ -1,7 +1,5 @@
 package Proyecto;
 
-import javax.swing.JOptionPane;
-
 import java.util.Scanner;
 
 public class Juego {
@@ -14,13 +12,12 @@ public class Juego {
 
     //Contructor de Juego para modificar requerimientos de los niveles (Composición)
     Juego(){
-        //Polimorfismo y (Clase Nivel tipo Abstract)
+        //Polimorfismo
         niveles[0]=new Nivel1(10, 1, 7,60);
         niveles[1]=new Nivel2(15, 1, 8,40);
         niveles[2]=new Nivel3(20, 2, 9,30);
     }
 
-    //Menú
     public boolean menuInicial(){
         int resp;
         System.out.println("\t\t\t\t\t\t\"CUIDANDO EL PLANETA\"");
@@ -47,26 +44,22 @@ public class Juego {
         return false;
     }
 
-    public void mostrarPantallaInicialNivel(){
-        limpiarPantalla();
-        //Método abstracto de Niveles y Polimorfismo
-        niveles[nivelActual].presentacionNivel();
-        System.out.println("\n\nPresione ENTER para continuar...");
-        entrada.nextLine();
-    }
-
     public int pasarTurno(int contJug){
         System.out.println("Se pasa el turno");
-        System.out.println("Presione ENTER...");
-        entrada.nextLine();
-        //Se reinicia el contador del juagador antes de pasar al siguiente
+
+        //Se reinicia el contador del jugador antes de pasar al siguiente
         jugadores[contJug].setSegundosRest(niveles[nivelActual].getSegundosTurno());
         contJug++;
         return contJug;
     }
 
-    public void iniciarJuego(Contenedor[]contenedores,PlantaTratadora planta){
-        mostrarPantallaInicialNivel();
+    public void iniciarJuego(Contenedor[]contenedores){
+        limpiarPantalla();
+        //Método abstracto de Niveles y Polimorfismo
+        niveles[nivelActual].presentacionNivel();
+        System.out.println("\n\nPresione ENTER para continuar...");
+        entrada.nextLine(); 
+        //Las primeras lineas muestran especificaciones de Nivel
 
         if (nivelActual>0) //Si el nivelActual es mayor a 0, se "retiran" los desechos del contenedor
             for (Contenedor contenedor:contenedores)
@@ -82,8 +75,11 @@ public class Juego {
             int contJug=0; //Para contar los jugadores
 
             do{
-                //Para clasificar desechos
-                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10) && (jugadores[contJug].getPasaNiv())){ //Se verifica que el jugador aun tenga vidas
+                //Flujo para clasificar desechos:
+                //(jugadores[contJug].getNoVidas()>0): revisa que el jugador siga con vida
+                //(jugadores[contJug].getNumDesechosClasif()<10): revisa que todavía no haya clasificado todos sus desechos
+                //(jugadores[contJug].getPasaNiv()): revisa que el jugador tenga la facultad de seguir jugando en niveles posteriores
+                if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10) && (jugadores[contJug].getPasaNiv())){
                     int resp=-1;
                     limpiarPantalla();
                     System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
@@ -100,49 +96,53 @@ public class Juego {
                         String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugadores[contJug].getSegundosRest());
                         jugadores[contJug].setSegundosRest(CronometroConJOptionPane.getTiempoRest());
 
-                        if(respString!=null)
+                        if(respString!=null) //Si responde la respuesta se pasa a Entero
                             resp=Integer.parseInt(respString);
-                        else{
+                        else{   //Si no responde en el tiempo indicado se pasa el turno
                             respInvalida=true;  resp=1;
                             contJug=pasarTurno(contJug);
                         }
                     }while (resp<1||resp>8);
                         
-                    if (respInvalida==false){
+                    if (respInvalida==false){ //Si es que ya había respondido...
                         jugadores[contJug].clasificarDesecho(niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug), contenedores[resp-1], niveles[nivelActual]);
                         jugadores[contJug].setNumDesechosClasif(jugadores[contJug].getNumDesechosClasif()+1);
 
-
+                        //Si la respuesta enviada fue incorrecta se pasa el turno
                         if (contenedores[resp-1].verificarDesecho(niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif()-1,contJug))==false){
                             contJug=pasarTurno(contJug);
                         }
-                        else{
-                            planta.addDesecho(contJug, contenedores[resp-1].getUltimoDesecho());
+                        else{ //Sino solo se agrega a la planta Tratadora
+                            jugadores[contJug].getPlanta().addDesecho(contJug, contenedores[resp-1].getUltimoDesecho());
                         }
                         System.out.println("Presione ENTER...");
                         entrada.nextLine();
                     }        
                 }
-                //Para tratar desechos
-                if ((contJug<jugadores.length)&&((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosTrat()<planta.getSizeArr_ArrayListDesecho(contJug)) && jugadores[contJug].getPasaNiv())){
+                //Flujo para tratar desechos
+                //(contJug<jugadores.length): verifica que el método pasarTurnos no haya sobrepasado al número de jugadores
+                //(jugadores[contJug].getNumDesechosTrat()<jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug): verifica que el jugador haya tratado todos los desechos 
+                if ((contJug<jugadores.length)&&((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosTrat()<jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug)) && jugadores[contJug].getPasaNiv())){
                     System.out.println("\n\nPlanta Tratadora...\nPresione ENTER...");
                     entrada.nextLine();
                     System.out.print("\nTurno de ");    jugadores[contJug].mostrarStats();
                     System.out.println();
-                    if (planta.identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
+                    //llama al método de planta
+                    if (jugadores[contJug].getPlanta().identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
                         contJug=pasarTurno(contJug);
                 }   
+                //(jugadores[contJug].getNumDesechosTrat()!=0): identifica que no hayas podido tratar ningun desecho
                 else if ((contJug<jugadores.length)&&(jugadores[contJug].getNumDesechosTrat()!=0)){
                     contJug=pasarTurno(contJug);
                 }
                 System.out.println("Presione ENTER...");
                 entrada.nextLine();
-            }while(contJug<jugadores.length);
-        } while(quedanJugadoresQuierenDesechar()||quedanJugadoresQuierenTratar(planta)); 
+            }while(contJug<jugadores.length); //Siempre que contJug no haya rebasado el número de jugadores sigue
+        } while(quedanJugadoresQuierenDesechar()||quedanJugadoresQuierenTratar());
 
-        //Se muestra que contenedor tuvo más desechos
+        //Se muestra que contenedor(es) tuvo más desechos
         Contenedor.mostrarMyrInsertados(contenedores,nivelActual);
-        //Se imprimen stats finales
+        //Se imprimen stats finales por nivel
         for (Jugador jugador:jugadores){
             System.out.println();
             jugador.mostrarStats();
@@ -151,6 +151,7 @@ public class Juego {
         entrada.nextLine();
     }
 
+    //Verifica que haya al menos un jugador con vida al que le falte clasificar sus desechos
     public boolean quedanJugadoresQuierenDesechar(){
         boolean seguir=false;
         for(Jugador jugador:jugadores)
@@ -159,16 +160,18 @@ public class Juego {
         return seguir;
     }
 
-    public boolean quedanJugadoresQuierenTratar(PlantaTratadora planta){
+    //Verifica que haya al menos un jugador al que le haga falta tratar desechos en la planta 
+    public boolean quedanJugadoresQuierenTratar(){
         boolean seguir=false;
         for (int i=0;i<jugadores.length;i++)
-            if ((jugadores[i].getNoVidas()>0) && (jugadores[i].getNumDesechosTrat()<planta.getSizeArr_ArrayListDesecho(i)))
+            if ((jugadores[i].getNoVidas()>0) && (jugadores[i].getNumDesechosTrat()<jugadores[i].getPlanta().getSizeArr_ArrayListDesecho(i)))
                 seguir=true;
         return(seguir);
     }
 
+
     public boolean puedePasarNivel(){ 
-        //Tras cada nivel se revisa que el jugador cumpla con las condiciones para el siguiente
+        //Tras cada nivel se revisa que al menos un jugador cumpla con las condiciones para el siguiente nivel
         for (Jugador jugador:jugadores){
             if ((niveles[nivelActual].verificarMinDesechosNiv(jugador)==false)||(jugador.getNoVidas()<=0)){
                 jugador.setPasaNiv(false);
@@ -184,6 +187,7 @@ public class Juego {
         return false;
     }
 
+    //Se hacen varios "saltos de línea" para simular una limpieza de pantalla
     public void limpiarPantalla(){
         for (int i=0;i<=15;i++)
             System.out.println();
@@ -225,15 +229,15 @@ public class Juego {
     }
 
     public static void main(String[] args) {
-        Juego juego=new Juego();
-        Contenedor[]contenedores=new Contenedor[12];
+        Juego juego=new Juego(); //Se crea un objeto de tipo Juego para "activar" el constructor
+        Contenedor[]contenedores=new Contenedor[13]; //Se crean los contenedores
 
         //Se inicializan los contenedores
         for (int i=0;i<contenedores.length;i++)
             contenedores[i]=new Contenedor(i);
 
         if (juego.menuInicial()){
-            //Agregación de Jugador con Juego
+            
             juego.setNumeroJugadores();                              
             Jugador[]jugadoresIngresados=new Jugador[juego.getNumJugadores()];
 
@@ -244,17 +248,22 @@ public class Juego {
                 String nombre=juego.entrada.nextLine();
                 jugadoresIngresados[i]=new Jugador(nombre);
             }
+            //Agregación de Jugador con Juego
             juego.setJugadores(jugadoresIngresados);
 
+            //Relación Jugador con Planta
+            PlantaTratadora planta=new PlantaTratadora();   //Se crea la planta
+            for (int i=0;i<juego.jugadores.length;i++)
+                juego.jugadores[i].setPlanta(planta);       //Todos los jugadores comparten planta
+            planta.setArregloArrListDesechos(juego.getNumJugadores());
 
-            PlantaTratadora planta=new PlantaTratadora(juego.numJugadores);
             do{
                 juego.niveles[juego.getNivelActual()].setDesechos(juego.getNumJugadores());
                 //Se instancian los desechos
                 juego.niveles[juego.getNivelActual()].generarDesechos(juego.getNumJugadoresRest()); 
 
                 //Inicio del Juego
-                juego.iniciarJuego(contenedores,planta);
+                juego.iniciarJuego(contenedores);
             }while(juego.puedePasarNivel() && juego.getNivelActual()<3); 
         }
     }
