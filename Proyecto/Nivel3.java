@@ -15,22 +15,16 @@ public class Nivel3 extends Nivel{
     @Override
     public void generarDesechos(int numJug) {
         for (int i=0;i<desechos.length;i++)
-            for (int j=0;j<desechos[i].length;j++){
-                int bifurca=(int)(Math.random()*3);
+            for (int j=0;j<numJug;j++){
+                int bifurca=(int)(Math.random()*4);
                 
-                if (bifurca==1)
-                    //Te da los residuos especiales
-                    desechos[i][j]=new Desechos((int)((Math.random()*3)+10));
-                else{
-                    int bifurca2=(int)((Math.random()*13));
-
-                    if(bifurca2==0||bifurca2==1||bifurca2==3)
-                        //Residuos Niv 1
-                        desechos[i][j]=new Desechos(bifurca2,(int)(Math.random()*5));
-                    else
-                        //Te da el resto de residuos
-                        desechos[i][j]=new Desechos(bifurca2);
-                }    
+                switch (bifurca) {
+                    //Te devuelven Desechos Genéricos
+                    case 0: desechos[i][j]=new Desechos((int)(((Math.random())*3)+4));      break;
+                    case 1: desechos[i][j]=new Desechos(8);                  break;
+                    //Te devuelve Medicamentos, Residuos Quimicos de Laboratorio y Residuos Biológicos
+                    default:desechos[i][j]=new DesechosNiv3((int)((Math.random()*3)+10));   break;
+                }
             }
     }
 }

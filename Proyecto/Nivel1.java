@@ -14,22 +14,18 @@ public class Nivel1 extends Nivel{
     @Override
     public void generarDesechos(int numJug) {
         for (int i=0;i<desechos.length;i++)
-            for (int j=0;j<desechos[i].length;j++){
-                int bifurca=(int)(Math.random()*3);
+            for (int j=0;j<numJug;j++){
+                int bifurca=(int)(Math.random()*4);
 
-                if (bifurca==0)
-                    //Te da un "Plástico" aleatorio
-                    desechos[i][j]=new Desechos(3,(int)(Math.random()*5));
-                else  {
-                    int bifurca2=(int)(Math.random()*2);
-                    if (bifurca2==0)
-                        //Te da un "Orgánico" aleatorio
-                        desechos[i][j]=new Desechos(bifurca2,(int)(Math.random()*5)); 
-                    else 
-                        //Te da un "Papel" aleatorio
-                        desechos[i][j]=new Desechos(bifurca2,(int)(Math.random()*3));
-                }
-                      
+                switch (bifurca){
+                    //Te devuelve Orgánicos y Papeles
+                    case 0: desechos[i][j]=new DesechosNiv1((int)(Math.random()*2));    break; 
+                    //Te devuelve Plasticos
+                    case 1: desechos[i][j]=new DesechosNiv1(3);          break;  
+                    //Te devuelven los Desechos Genéricos     
+                    case 2: desechos[i][j]=new Desechos((int)(((Math.random())*3)+4));  break;
+                    case 3: desechos[i][j]=new Desechos(8);              break;
+                }            
             }    
     }
 }

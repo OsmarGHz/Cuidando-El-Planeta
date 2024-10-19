@@ -1,0 +1,27 @@
+Orgánico:		"M", "C", "F"
+
+Papeles/Cartón:		"C", "D", "P", "R"
+
+Vidrios:		"R", "C", "T", "F", "M"
+
+Plásticos:		"G", "C", "T", "E", "M"
+
+Chatarra/Metal: 	"R", "C", "F", "T", "M"
+
+Aceites:		"G", "C", "F", "D", "R", "N"
+
+Pinturas:		"C", "L", "R", "N"
+
+Baterías:		"G", "C", "D", "T", "R"
+
+Pilas:			"G", "C", "D", "S", "N", "T"
+
+Electrónicos:		"C", "D", "T", "S", "R", "B"
+
+Medicamentos:		"G", "C", "S", "N", "T", "F"
+
+Quimicos Lab:		"G" ,"A", "S", "I", "F"
+
+Residuos Bio:		"G", "D", "E", "F"
+
+

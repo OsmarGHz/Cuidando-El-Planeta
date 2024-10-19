@@ -102,7 +102,7 @@ public class Juego {
                             respInvalida=true;  resp=1;
                             contJug=pasarTurno(contJug);
                         }
-                    }while (resp<1||resp>8);
+                    }while (resp<1||resp>13);
                         
                     if (respInvalida==false){ //Si es que ya había respondido...
                         jugadores[contJug].clasificarDesecho(niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug), contenedores[resp-1], niveles[nivelActual]);
@@ -169,7 +169,6 @@ public class Juego {
         return(seguir);
     }
 
-
     public boolean puedePasarNivel(){ 
         //Tras cada nivel se revisa que al menos un jugador cumpla con las condiciones para el siguiente nivel
         for (Jugador jugador:jugadores){
@@ -186,7 +185,7 @@ public class Juego {
         }    
         return false;
     }
-
+    
     //Se hacen varios "saltos de línea" para simular una limpieza de pantalla
     public void limpiarPantalla(){
         for (int i=0;i<=15;i++)
@@ -247,6 +246,7 @@ public class Juego {
                 System.out.println("Ingrese su nombre (Jugador "+(i+1)+"): ");
                 String nombre=juego.entrada.nextLine();
                 jugadoresIngresados[i]=new Jugador(nombre);
+                System.out.println("Presione ENTER...");
             }
             //Agregación de Jugador con Juego
             juego.setJugadores(jugadoresIngresados);
