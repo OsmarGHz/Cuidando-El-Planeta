@@ -21,16 +21,16 @@ public class Desechos {
                 break;
             case 5: //Nombres "Aceites"
                 switch (numIdDesecho){
-                    case 0: nombre="Aceite de cociona";                 break;
+                    case 0: nombre="Aceite de cocina";                 break;
                     case 1: nombre="Aceite de motor";                   break;
-                    case 2: nombre="Aceite hidraulico de maquinaria";   break;
+                    case 2: nombre="Aceite hidráulico de maquinaria";   break;
                     case 3: nombre="Aceite lubricante industrial";      break;
                 }
                 break;
             case 6: //Nombres "Pinturas"
                 numIdDesecho=(int)(Math.random()*2);
                 switch (numIdDesecho){
-                    case 0: nombre="Acrilico";  break;
+                    case 0: nombre="Acrílico";  break;
                     case 1: nombre="Esmalte";   break;
                 }
                 break;

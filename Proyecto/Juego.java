@@ -18,37 +18,38 @@ public class Juego {
         niveles[2]=new Nivel3(20, 2, 9,30);
     }
 
-    public boolean menuInicial(){
+    public int menuInicial(){
         int resp;
-        System.out.println("\t\t\t\t\t\t\"CUIDANDO EL PLANETA\"");
+        System.out.println("\t\t\t\t\t\t\t\"CUIDANDO EL PLANETA\"");
         System.out.println();
-        System.out.println("\t\t\t\t\t\t        _____");
-        System.out.println("\t\t\t\t\t\t    ,-:` \\;',`'-, ");
-        System.out.println("\t\t\t\t\t\t  .'-;_,;  ':-;_,'.");
-        System.out.println("\t\t\t\t\t\t /;   '/    ,  _`.-\\");
-        System.out.println("\t\t\t\t\t\t| '`. (`     /` ` \\`|");
-        System.out.println("\t\t\t\t\t\t|:.  `\\`-.   \\_   / |");
-        System.out.println("\t\t\t\t\t\t|     (   `,  .`\\ ;'|");
-        System.out.println("\t\t\t\t\t\t \\     | .'     `-'/");
-        System.out.println("\t\t\t\t\t\t  `.   ;/        .'");
-        System.out.println("\t\t\t\t\t\t    `'-._____.");
+        System.out.println("\t\t\t\t\t\t\t        _____");
+        System.out.println("\t\t\t\t\t\t\t    ,-:` \\;',`'-, ");
+        System.out.println("\t\t\t\t\t\t\t  .'-;_,;  ':-;_,'.");
+        System.out.println("\t\t\t\t\t\t\t /;   '/    ,  _`.-\\");
+        System.out.println("\t\t\t\t\t\t\t| '`. (`     /` ` \\`|");
+        System.out.println("\t\t\t\t\t\t\t|:.  `\\`-.   \\_   / |");
+        System.out.println("\t\t\t\t\t\t\t|     (   `,  .`\\ ;'|");
+        System.out.println("\t\t\t\t\t\t\t \\     | .'     `-'/");
+        System.out.println("\t\t\t\t\t\t\t  `.   ;/        .'");
+        System.out.println("\t\t\t\t\t\t\t    `'-._____.");
         System.out.println("\n");
-        System.out.println("1: Iniciar Juego");
-        System.out.println("0: Salir");
-        System.out.println("Ingrese la opción que desee:");
+        System.out.println("\t\t\t\t\t\t\t  1: Iniciar Juego");
+        System.out.println("\t\t\t\t\t\t\t      0: Salir");
+        System.out.println("\t\t\t\t\t\t    Ingrese la opción que desee:");
+        System.out.print("\t\t\t\t\t\t\t          ");
         do 
             resp=entrada.nextInt();
         while (resp<0 || resp>1);
         if (resp==1)
-            return true;
-        return false;
+            return 1;
+        return 0;
     }
 
     public int pasarTurno(int contJug){
         System.out.println("Se pasa el turno");
 
         //Se reinicia el contador del jugador antes de pasar al siguiente
-        jugadores[contJug].setSegundosRest(niveles[nivelActual].getSegundosTurno());
+        jugadores[contJug].getCronometro().setTiempoRest(niveles[nivelActual].getSegundosTurno());
         contJug++;
         return contJug;
     }
@@ -67,7 +68,7 @@ public class Juego {
 
         for (Jugador jugador:jugadores){
             //Se reinician los valores para los segundos de turno y el num de desechos clasificados
-            jugador.setSegundosRest(niveles[nivelActual].getSegundosTurno());
+            jugador.getCronometro().setTiempoRest(niveles[nivelActual].getSegundosTurno());
             jugador.setNumDesechosClasif(0);
         }   
 
@@ -82,7 +83,7 @@ public class Juego {
                 if ((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosClasif()<10) && (jugadores[contJug].getPasaNiv())){
                     int resp=-1;
                     limpiarPantalla();
-                    System.out.print("\n\nTurno de ");    jugadores[contJug].mostrarStats();
+                    System.out.print("\n\n>> Turno de ");    jugadores[contJug].mostrarStats();
 
                     //Se muestran los contenedores disponibles
                     System.out.println("\n\nTe topaste con: "+niveles[nivelActual].getDesecho(jugadores[contJug].getNumDesechosClasif(),contJug).getNombreDesecho()+"\n");
@@ -93,12 +94,18 @@ public class Juego {
 
                     boolean respInvalida=false;
                     do{
-                        String respString=CronometroConJOptionPane.mostrarDialogoConCronometro(jugadores[contJug].getSegundosRest());
-                        jugadores[contJug].setSegundosRest(CronometroConJOptionPane.getTiempoRest());
+                        System.out.println("\nTienes "+jugadores[contJug].getCronometro().getTiempoRestante()+" segundos para contestar.");
+                        System.out.println("Ingresa el número de Contenedor:");
 
-                        if(respString!=null) //Si responde la respuesta se pasa a Entero
+                        jugadores[contJug].getCronometro().iniciarCronometro();
+                        String respString=entrada.nextLine();
+                        jugadores[contJug].getCronometro().detenerCronometro();
+                        
+                        System.out.println("\nTe quedaron "+jugadores[contJug].getCronometro().getTiempoRestante()+" segundos.");
+
+                        if(jugadores[contJug].getCronometro().getTiempoRestante()>0) //Si responde a tiempo la respuesta se pasa a Entero
                             resp=Integer.parseInt(respString);
-                        else{   //Si no responde en el tiempo indicado se pasa el turno
+                        else{   //Si no responde en el tiempo indicado no se toma en cuenta la respuesta y se pasa el turno
                             respInvalida=true;  resp=1;
                             contJug=pasarTurno(contJug);
                         }
@@ -125,7 +132,7 @@ public class Juego {
                 if ((contJug<jugadores.length)&&((jugadores[contJug].getNoVidas()>0) && (jugadores[contJug].getNumDesechosTrat()<jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug)) && jugadores[contJug].getPasaNiv())){
                     System.out.println("\n\nPlanta Tratadora...\nPresione ENTER...");
                     entrada.nextLine();
-                    System.out.print("\nTurno de ");    jugadores[contJug].mostrarStats();
+                    System.out.print("\n>> Turno de ");    jugadores[contJug].mostrarStats();
                     System.out.println();
                     //llama al método de planta
                     if (jugadores[contJug].getPlanta().identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
@@ -228,6 +235,7 @@ public class Juego {
     }
 
     public static void main(String[] args) {
+        Scanner entrada=new Scanner(System.in);
         Juego juego=new Juego(); //Se crea un objeto de tipo Juego para "activar" el constructor
         Contenedor[]contenedores=new Contenedor[13]; //Se crean los contenedores
 
@@ -235,30 +243,38 @@ public class Juego {
         for (int i=0;i<contenedores.length;i++)
             contenedores[i]=new Contenedor(i);
 
-        if (juego.menuInicial()){
+        if (juego.menuInicial()==1){
             
             juego.setNumeroJugadores();                              
             Jugador[]jugadoresIngresados=new Jugador[juego.getNumJugadores()];
 
             System.out.println();
             for (int i=0;i<juego.getNumJugadores();i++){
-                juego.entrada.nextLine();
                 System.out.println("Ingrese su nombre (Jugador "+(i+1)+"): ");
-                String nombre=juego.entrada.nextLine();
+                String nombre=entrada.nextLine();
                 jugadoresIngresados[i]=new Jugador(nombre);
                 System.out.println("Presione ENTER...");
+                entrada.nextLine();
             }
             //Agregación de Jugador con Juego
             juego.setJugadores(jugadoresIngresados);
-
+            
             //Relación Jugador con Planta
             PlantaTratadora planta=new PlantaTratadora();   //Se crea la planta
             for (int i=0;i<juego.jugadores.length;i++)
                 juego.jugadores[i].setPlanta(planta);       //Todos los jugadores comparten planta
             planta.setArregloArrListDesechos(juego.getNumJugadores());
 
+            //Relación Jugador con Cronometro
+            Cronometro[] cronometros=new Cronometro[juego.getNumJugadores()];
+            for (int i=0;i<juego.jugadores.length;i++)
+                cronometros[i]=new Cronometro();
+
+            for (int i=0;i<juego.jugadores.length;i++)
+                juego.jugadores[i].setCronometro(cronometros[i]);
+
             do{
-                juego.niveles[juego.getNivelActual()].setDesechos(juego.getNumJugadores());
+                juego.niveles[juego.getNivelActual()].setDesechos(juego.getNumJugadoresRest());
                 //Se instancian los desechos
                 juego.niveles[juego.getNivelActual()].generarDesechos(juego.getNumJugadoresRest()); 
 

@@ -4,10 +4,12 @@ public class Jugador {
     private String nombre;
     private int noVidasActuales=5;
     private int noPuntos=0;
-    private int segundosRest;
     private int numDesechosClasif=0;
     private int numTratados=0;
     private boolean pasaNiv=true;
+    //Relacion Jugador con Cronometro
+    private Cronometro cronometro;
+    //Relacion Jugador con Planta Tratadora
     private PlantaTratadora planta;
 
     Jugador(String nombre){
@@ -29,7 +31,7 @@ public class Jugador {
 
     public void mostrarStats(){
         System.out.print(nombre+"\n");
-        System.out.println("Puntos: "+noPuntos+"\t\t\t\t\t\t\tVidas: "+noVidasActuales);
+        System.out.println("Puntos: "+noPuntos+"\t\t\t\t\t\t\t\t\t\tVidas: "+noVidasActuales);
     }
 
     //Setters
@@ -39,10 +41,6 @@ public class Jugador {
 
     public void perderVidas(Nivel niv){
         noVidasActuales-=niv.getVidasRespIncorrecta();
-    }
-
-    public void setSegundosRest(int segundosRest){
-        this.segundosRest=segundosRest;
     }
     
     public void setNumDesechosClasif(int numDesechosClasif){
@@ -61,6 +59,10 @@ public class Jugador {
         this.planta=planta;
     }
 
+    public void setCronometro(Cronometro cronometro){
+        this.cronometro=cronometro;
+    }
+
     //Getters
     public String getNombreJug(){
         return nombre;
@@ -72,10 +74,6 @@ public class Jugador {
 
     public int getNoVidas(){
         return noVidasActuales;
-    }
-
-    public int getSegundosRest(){
-        return segundosRest;
     }
 
     public int getNumDesechosClasif(){
@@ -92,5 +90,9 @@ public class Jugador {
 
     public PlantaTratadora getPlanta(){
         return planta;
+    }
+
+    public Cronometro getCronometro(){
+        return cronometro;
     }
 }
