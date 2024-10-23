@@ -51,10 +51,13 @@ public class Contenedor {
 
         /*Vuelve a recorrer el arreglo e imprime cual es el que tuvo más desechos ingresados (se vuelve
         a recorrer por si es que hay más de un contenedor con el número mayor de desechos ingresados)*/
-        for (int i=0;i<contenedores.length;i++)
-            if (contenedores[i].desechosGuardados.size()==myr){
-                System.out.println(contenedores[i].getTipoDesecho()+" con: "+myr+" desecho(s)");
-            }
+        if (myr==0)
+            System.out.println("Todos los contenedores están vacíos.");
+        else 
+            for (int i=0;i<contenedores.length;i++)
+                if (contenedores[i].desechosGuardados.size()==myr){
+                    System.out.println(contenedores[i].getTipoDesecho()+" con: "+myr+" desecho(s)");
+                }
     }
 
     // Método para agregar desechos al ArrayList

@@ -55,7 +55,7 @@ public class PlantaTratadora {
 
     public String respondeTratamiento(Jugador jugador){
         jugador.getCronometro().iniciarCronometro();
-        System.out.println("Tienes "+jugador.getCronometro().getTiempoRestante()+" segundos para contestar.");
+        System.out.print("\t\t\t\t\t(Tienes "+jugador.getCronometro().getTiempoRestante()+" segundos para contestar)\n");
 
         String respString=entrada.nextLine();
 
@@ -72,7 +72,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaOrganico.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -105,7 +105,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaPapelesCartones.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -140,7 +140,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaVidrios.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -174,7 +174,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaPlasticos.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -209,7 +209,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaChatarraMetal.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -244,7 +244,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaAceites.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -279,7 +279,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaPinturas.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -313,7 +313,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaBaterias.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -347,7 +347,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaPilas.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -382,7 +382,7 @@ public class PlantaTratadora {
         String[] respuestaElectronicos = {"C" , "D" , "T" , "S" , "R", "B"} ;
 
         for(int i = 0; i < respuestaElectronicos.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -418,7 +418,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaMedicamentos.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -452,7 +452,7 @@ public class PlantaTratadora {
         String[] respuestaTratarQuimicosPeligrosos = {"G" ,"A", "S" , "I" , "F" } ;
 
         for(int i = 0; i < respuestaTratarQuimicosPeligrosos.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -487,7 +487,7 @@ public class PlantaTratadora {
 
         System.out.println();
         for(int i = 0; i < respuestaTejidoBiológico.length ; i++ ){
-            System.out.println("\nIngresa la respuesta No "+(i+1)+": ");
+            System.out.print("\nIngresa la respuesta No "+(i+1)+": ");
             String respString=(respondeTratamiento(jugador));
 
             if(jugador.getCronometro().getTiempoRestante()>0){
@@ -540,8 +540,6 @@ public class PlantaTratadora {
     //Plásticos
     private void extrusion(){
         System.out.println("Pasando plástico fundido por molde...");
-        System.out.println("Espere...\nPresione ENTER...");
-        entrada.nextLine();
         System.out.println("Plástico enfriado...");
     }
 
@@ -565,7 +563,7 @@ public class PlantaTratadora {
 
     //Electrónicos
     private void desmontaje(){
-        System.out.println("Separando con ciudado...");
+        System.out.println("Separando con cuidado...");
     }
 
     private void tomandoPlastMet(){

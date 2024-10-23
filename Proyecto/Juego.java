@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Juego {
     private int nivelActual=0;
-    private int numJugadores;
+    private int numJugadores=0;
     private Nivel[]niveles=new Nivel[3];
     private Jugador[]jugadores;
 
@@ -74,7 +74,6 @@ public class Juego {
 
         do{ 
             int contJug=0; //Para contar los jugadores
-
             do{
                 //Flujo para clasificar desechos:
                 //(jugadores[contJug].getNoVidas()>0): revisa que el jugador siga con vida
@@ -122,8 +121,6 @@ public class Juego {
                         else{ //Sino solo se agrega a la planta Tratadora
                             jugadores[contJug].getPlanta().addDesecho(contJug, contenedores[resp-1].getUltimoDesecho());
                         }
-                        System.out.println("Presione ENTER...");
-                        entrada.nextLine();
                     }        
                 }
                 //Flujo para tratar desechos
@@ -138,8 +135,7 @@ public class Juego {
                     if (jugadores[contJug].getPlanta().identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
                         contJug=pasarTurno(contJug);
                 }   
-                //(jugadores[contJug].getNumDesechosTrat()!=0): identifica que no hayas podido tratar ningun desecho
-                else if ((contJug<jugadores.length)&&(jugadores[contJug].getNumDesechosTrat()!=0)){
+                if ((contJug<jugadores.length && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug)==10)||(contJug<jugadores.length && jugadores[contJug].getNoVidas()<=0)){
                     contJug=pasarTurno(contJug);
                 }
                 System.out.println("Presione ENTER...");
@@ -234,6 +230,22 @@ public class Juego {
         return i;
     }
 
+    public void muestraGanadores(){
+        int myr=jugadores[0].getNoPuntos();
+        System.out.println("---------------------------------------------------------------------------------------------------");
+        for (Jugador jugador:jugadores)
+            if (jugador.getNoPuntos()>myr)
+                myr=jugador.getNoPuntos();
+
+        if (myr==0)
+            System.out.println("Perdieron");
+        else
+            for (Jugador jugador:jugadores)
+                if (jugador.getNoPuntos()==myr)
+                    System.out.println("\n\t\t\t\t\t\t¡¡"+jugador.getNombreJug()+" has GANADO!!");
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Scanner entrada=new Scanner(System.in);
         Juego juego=new Juego(); //Se crea un objeto de tipo Juego para "activar" el constructor
@@ -281,6 +293,11 @@ public class Juego {
                 //Inicio del Juego
                 juego.iniciarJuego(contenedores);
             }while(juego.puedePasarNivel() && juego.getNivelActual()<3); 
+
+            if (juego.getNumJugadores()!=0){
+                juego.muestraGanadores();
+            }
+
         }
     }
 }
