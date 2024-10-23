@@ -135,7 +135,7 @@ public class Juego {
                     if (jugadores[contJug].getPlanta().identificarDesecho(niveles[nivelActual], jugadores[contJug],contJug)==0)
                         contJug=pasarTurno(contJug);
                 }   
-                if ((contJug<jugadores.length && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug)==10)||(contJug<jugadores.length && jugadores[contJug].getNoVidas()<=0)){
+                if ((contJug<jugadores.length && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getNumDesechosTrat()==jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug))||(contJug<jugadores.length && jugadores[contJug].getNoVidas()<=0)){
                     contJug=pasarTurno(contJug);
                 }
                 System.out.println("Presione ENTER...");
@@ -242,7 +242,7 @@ public class Juego {
         else
             for (Jugador jugador:jugadores)
                 if (jugador.getNoPuntos()==myr)
-                    System.out.println("\n\t\t\t\t\t\t¡¡"+jugador.getNombreJug()+" has GANADO!!");
+                    System.out.println("\n\t\t\t\t\t¡¡"+jugador.getNombreJug()+" has GANADO!!");
         System.out.println();
     }
 
