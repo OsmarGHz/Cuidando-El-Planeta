@@ -136,6 +136,7 @@ public class Juego {
                         contJug=pasarTurno(contJug);
                 }   
                 if ((contJug<jugadores.length && jugadores[contJug].getNumDesechosClasif()==10 && jugadores[contJug].getNumDesechosTrat()==jugadores[contJug].getPlanta().getSizeArr_ArrayListDesecho(contJug))||(contJug<jugadores.length && jugadores[contJug].getNoVidas()<=0)){
+                    System.out.println("+ Para el jugador "+contJug);
                     contJug=pasarTurno(contJug);
                 }
                 System.out.println("Presione ENTER...");
