@@ -52,6 +52,7 @@ public class Propiedad extends Poliza{
                 estadoAdeudo=2;
             }
         }while (estadoAdeudo<0 || estadoAdeudo >1); 
+        darAlta();
     }
 
     @Override

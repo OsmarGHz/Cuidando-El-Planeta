@@ -28,6 +28,7 @@ public class Vida extends Poliza{
                 valor=2;
             }
         }while (valor<0 || valor >1); 
+        darAlta();
     }
 
     @Override

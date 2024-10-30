@@ -57,10 +57,10 @@ public class Aseguradora {
         int numero=0;
         for (Cliente cliente:carteraClientes)
             if (cliente.getEdad()>=40 && cliente.getEdad()<=60){
-                cliente.imprimirDatosJuntos();
+                System.out.println(">> "+cliente.imprimirDatosJuntos());
                 numero++;
             }
-        System.out.println("El total de clientes entre 40-60 años son: "+numero);    
+        System.out.println("\nEl total de clientes entre 40-60 años son: "+numero);    
     }
 
     public static void darAltaCliente(){

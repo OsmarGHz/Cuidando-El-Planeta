@@ -29,7 +29,7 @@ class Cliente {
             System.out.println("\nIngrese el tipo de Persona (Moral o Física): ");
             entradaCliente.nextLine(); //Se limpia el buffer
             tipo=entradaCliente.nextLine();
-        }while(!tipo.equals("Física") && !tipo.equals("Moral"));
+        }while(!(tipo.equals("Física") || tipo.equals("Moral")|| tipo.equals("Fisica")));
     }
 
     public void imprimirDatosSep() {
