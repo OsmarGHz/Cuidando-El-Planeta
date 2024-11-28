@@ -45,6 +45,17 @@ public class Juego {
         return 0;
     }
 
+    public void pedirNombreJugadores(int i,Jugador[]jugadoresIngresados, Scanner entrada){
+        if (i>0) {
+            pedirNombreJugadores(i-1, jugadoresIngresados, entrada);
+        }
+        System.out.println("Ingrese su nombre (Jugador "+(i+1)+"): ");
+        String nombre=entrada.nextLine();
+        jugadoresIngresados[i]=new Jugador(nombre);
+        System.out.println("Presione ENTER...");
+        entrada.nextLine();
+    }
+
     public int pasarTurno(int contJug){
         System.out.println("Se pasa el turno");
 
@@ -262,13 +273,8 @@ public class Juego {
             Jugador[]jugadoresIngresados=new Jugador[juego.getNumJugadores()];
 
             System.out.println();
-            for (int i=0;i<juego.getNumJugadores();i++){
-                System.out.println("Ingrese su nombre (Jugador "+(i+1)+"): ");
-                String nombre=entrada.nextLine();
-                jugadoresIngresados[i]=new Jugador(nombre);
-                System.out.println("Presione ENTER...");
-                entrada.nextLine();
-            }
+            
+            juego.pedirNombreJugadores((juego.getNumJugadores())-1, jugadoresIngresados, entrada);
             //Agregación de Jugador con Juego
             juego.setJugadores(jugadoresIngresados);
             
@@ -300,5 +306,6 @@ public class Juego {
             }
 
         }
+        entrada.close();
     }
 }

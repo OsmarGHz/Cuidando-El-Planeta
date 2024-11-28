@@ -1,17 +1,24 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.awt.Dimension;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class InterfazGraficaJuego extends JFrame{
     // 0:Panel Menu, 1:Panel FondoBasura, 2:Panel FondoPlanta, 3:Panel Presentación, 4:Panel Resultados, 5: Pierde/Gana
     private JPanel[] panelesFondo=new JPanel[6];
 
+    private ImageIcon cuidandoElPlanetaLogo = new ImageIcon("Imagenes/CuidandoElPlaneta.png");
+    private ImageIcon closeIcon = new ImageIcon("Imagenes/minClose.png");
+
     private JPanel[] pBotes=new JPanel[13];
+    private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel();
     private JButton bStart;
     private JButton[] bCerrar=new JButton[2];
     private JButton[] bBotes=new JButton[13];
@@ -35,6 +42,8 @@ public class InterfazGraficaJuego extends JFrame{
 
     //Se inicializan e instancian los parametros del Frame
     public InterfazGraficaJuego(){ 
+
+
         initPantalla();
 
         initPaneles();
@@ -46,22 +55,28 @@ public class InterfazGraficaJuego extends JFrame{
 
     //Ajustes del Frame
     public void initPantalla(){
-        setTitle("Cuidando el Planeta");
+        setTitle("Cuidando el Planeta: El Videojuego");
         setSize(WIDTH,HEIGHT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(null);  
+        setLayout(new BorderLayout());
     }
 
     //Paneles
     public void initPaneles(){
         for (int i=0; i<panelesFondo.length;i++){
             panelesFondo[i]=new JPanel();
-            panelesFondo[i].setLayout(null);
-            panelesFondo[i].setBounds(0,0,WIDTH,HEIGHT);
+            panelesFondo[i].setLayout(new BorderLayout());
+            //panelesFondo[i].setLayout(null);
+            //panelesFondo[i].setBounds(0,0,WIDTH,HEIGHT);
+            panelesFondo[i].setPreferredSize(new Dimension(WIDTH,HEIGHT));
         }
 
+        //Para la barra de herramientas y el start
+        toolBar0.setLayout(new BorderLayout());
+        bottomBar0.setLayout(new BorderLayout());
+
         //Para el Menu 
-        panelesFondo[0].setBackground(Color.GREEN);
+        panelesFondo[0].setBackground(new Color(0x7ddfc9));
 
         //Para el nivel
         panelesFondo[1].setBackground(Color.GRAY);
@@ -79,9 +94,12 @@ public class InterfazGraficaJuego extends JFrame{
         panelesFondo[4].setBackground(Color.LIGHT_GRAY);
         panelesFondo[4].setVisible(false);
         
+        /*
         for (int i=0;i<panelesFondo.length;i++)
-            add(panelesFondo[i]);
-
+            add(panelesFondo[i],BorderLayout.CENTER);
+        */
+        //Solo agregaremos el 1er panel panelesFondo[0] al frame, por BorderLayout
+        add(panelesFondo[0],BorderLayout.CENTER);
 
         //Paneles para los botes de basura
         int X_BOTES=20;
@@ -101,15 +119,21 @@ public class InterfazGraficaJuego extends JFrame{
     public void initBotones(){
         //Boton para comenzar el juego
         bStart=new JButton("START");
-        bStart.setSize(100,30);
-        bStart.setLocation((WIDTH-bStart.getWidth())/2, (3*HEIGHT)/4);
+        bStart.setPreferredSize(new Dimension(100,50));
+        //bStart.setLocation((WIDTH-bStart.getWidth())/2, (3*HEIGHT)/4);
         bStart.setFocusable(false);
-        bStart.setBackground(Color.BLACK);
-        bStart.setForeground(Color.green);
+        bStart.setBackground(new Color(0x66df84));
+        bStart.setForeground(Color.WHITE);
+        bStart.setOpaque(true);
+        bStart.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        bottomBar0.add(bStart,BorderLayout.CENTER);
+        bottomBar0.setBorder(new EmptyBorder(20, 200, 40, 200));
+        bottomBar0.setBackground(new Color(0x7ddfc9));
 
         startAction=new ButtonHandlerStart();
         bStart.addActionListener(startAction);
-        panelesFondo[0].add(bStart);
+        panelesFondo[0].add(bottomBar0,BorderLayout.SOUTH);
 
         //botón para Salir del Juego
         initBotonesSalir();
@@ -124,17 +148,21 @@ public class InterfazGraficaJuego extends JFrame{
     public void initBotonesSalir(){
         cerrarAction=new ButtonHandlerSalir();
         for (int i=0; i<bCerrar.length; i++){
-            bCerrar[i]=new JButton("x");
-            bCerrar[i].setSize(43,43);
-            bCerrar[i].setLocation((WIDTH-bCerrar[i].getWidth())-30, bCerrar[i].getHeight()-20);
+            bCerrar[i]=new JButton();
+            bCerrar[i].setIcon(closeIcon);
+            bCerrar[i].setSize(50,50);
+            //bCerrar[i].setLocation((WIDTH-bCerrar[i].getWidth())-30, bCerrar[i].getHeight()-20);
             bCerrar[i].setFocusable(false);
-            bCerrar[i].setBackground(Color.BLACK);
-            bCerrar[i].setForeground(new Color(0, 255, 51));
-
+            bCerrar[i].setBackground(new Color(0x75ceba));
+            bCerrar[i].setBorder(null);
+            //bCerrar[i].setForeground(new Color(0, 255, 51));
+            
             bCerrar[i].addActionListener(cerrarAction);
         }
-        
-        panelesFondo[0].add(bCerrar[0]);
+        toolBar0.add(bCerrar[0],BorderLayout.EAST);
+        toolBar0.setBorder(new EmptyBorder(10, 10, 10, 20));
+        toolBar0.setBackground(new Color(0x75ceba));
+        panelesFondo[0].add(toolBar0,BorderLayout.NORTH);
         panelesFondo[3].add(bCerrar[1]);
     }
 
@@ -285,18 +313,20 @@ public class InterfazGraficaJuego extends JFrame{
 
     //Etiquetas
     public void initEtiquetas(){
-        lMenu=new JLabel("Cuidando el Planeta");
-        lMenu.setForeground(Color.BLACK);
-        lMenu.setSize(120,80);
-        lMenu.setLocation(((WIDTH-lMenu.getWidth())/2), HEIGHT*1/4);
-        panelesFondo[0].add(lMenu);
+        lMenu=new JLabel();
+        lMenu.setIcon(cuidandoElPlanetaLogo);
+        lMenu.setHorizontalAlignment(JLabel.CENTER);
+        //lMenu.setForeground(Color.BLACK);
+        //lMenu.setSize(400,400);
+        //lMenu.setLocation(((WIDTH-lMenu.getWidth())/2), HEIGHT*1/4);
+        panelesFondo[0].add(lMenu,BorderLayout.CENTER);
 
         lPresentacion=new JLabel();
         lPresentacion.setHorizontalAlignment(JLabel.CENTER);
         lPresentacion.setForeground(Color.WHITE);
         lPresentacion.setSize(190,200);
         lPresentacion.setLocation(((WIDTH-lPresentacion.getWidth())/2), (HEIGHT-lPresentacion.getHeight())/2);
-        panelesFondo[3].add(lPresentacion,BorderLayout.CENTER);
+        panelesFondo[3].add(lPresentacion);
 
         //Se te indica cuando comenzará el juego
         lCarga=new JLabel();
@@ -508,20 +538,29 @@ public class InterfazGraficaJuego extends JFrame{
 
 
     public void cambiaPanelTirar(){
-        for (int i=0;i<panelesFondo.length;i++)
+        for (int i=0;i<panelesFondo.length;i++){
             panelesFondo[i].setVisible(false);
+            if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
+        }
+        add(panelesFondo[1]);
         panelesFondo[1].setVisible(true);
     }
 
     public void cambiaPanelPlanta(){
-        for (int i=0;i<panelesFondo.length;i++)
+        for (int i=0;i<panelesFondo.length;i++){
             panelesFondo[i].setVisible(false);
+            if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
+        }
+        add(panelesFondo[2]);
         panelesFondo[2].setVisible(true);
     }
 
     public void cambiaPanelPresentacion(Lock lock, Condition conditionLock){
-        for (int i=0;i<panelesFondo.length;i++)
+        for (int i=0;i<panelesFondo.length;i++){
             panelesFondo[i].setVisible(false);
+            if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
+        }
+        add(panelesFondo[3]);
         panelesFondo[3].setVisible(true);
 
         // Temporizador para el conteo regresivo
@@ -552,8 +591,11 @@ public class InterfazGraficaJuego extends JFrame{
     }
 
     public void muestraPanelMyrCont(){
-        for (int i=0;i<panelesFondo.length;i++)
+        for (int i=0;i<panelesFondo.length;i++){
             panelesFondo[i].setVisible(false);
+            if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
+        }
+        add(panelesFondo[4]);
         panelesFondo[4].setVisible(true);
 
         final Object monitor = new Object(); // Objeto de sincronización
@@ -591,8 +633,11 @@ public class InterfazGraficaJuego extends JFrame{
     }
 
     public void muestraPanelResultados(){
-        for (int i=0;i<panelesFondo.length;i++)
+        for (int i=0;i<panelesFondo.length;i++){
             panelesFondo[i].setVisible(false);
+            if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
+        }
+        add(panelesFondo[5]);
         panelesFondo[5].setVisible(true);
 
         final Object monitor = new Object(); // Objeto de sincronización
@@ -646,7 +691,9 @@ public class InterfazGraficaJuego extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             panelesFondo[0].setVisible(false);
+            remove(panelesFondo[0]);
             panelesFondo[3].setVisible(true);
+            add(panelesFondo[3]);
             presionaStart=true;
         } 
     }

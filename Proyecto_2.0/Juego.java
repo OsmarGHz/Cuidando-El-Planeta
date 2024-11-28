@@ -341,7 +341,7 @@ public class Juego {
         String numJugS;
         while (true){
             try {
-                System.out.println("\n\nIngrese el número de JUGADORES (Máximo 5): ");
+                System.out.print("\n\nIngrese el número de JUGADORES (Máximo 5): ");
                 numJugS=asigBufferedReader(brJuego);
                 numJugadores=Integer.parseInt(numJugS); 
 
@@ -365,10 +365,11 @@ public class Juego {
         if (i>1) {
             pedirNombreJugadores(i-1, jugadoresIngresados);
         }
-        System.out.println("Ingrese su nombre (Jugador "+(i)+"): ");
+        System.out.println();
+        System.out.print("Ingrese su nombre (Jugador "+(i)+"): ");
         String nombre=asigBufferedReader(brJuego);
         jugadoresIngresados[i-1]=new Jugador(nombre);
-        System.out.println("Presione ENTER...");
+        System.out.print("Presione ENTER...");
         entrada.nextLine();
     }
     

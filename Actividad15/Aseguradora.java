@@ -215,5 +215,6 @@ public class Aseguradora {
                 entrada.nextLine();
             }
         }while(respInicial!=7);
+        entrada.close();
     }
 }
