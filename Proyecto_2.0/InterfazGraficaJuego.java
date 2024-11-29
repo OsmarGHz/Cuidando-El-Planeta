@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -23,9 +23,11 @@ public class InterfazGraficaJuego extends JFrame{
     private ImageIcon closeIcon = new ImageIcon("Imagenes/minClose.png");
     private ImageIcon[] boteIcon = new ImageIcon[13];
 
-    private JPanel pBotes = new JPanel();
-    private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel(), toolBar3 = new JPanel();
-    private JPanel panelPresentacion = new JPanel(), panelGlobalBotes = new JPanel();
+    private JPanel[] pBotes = new JPanel[13];
+    private JPanel[] toolBar = new JPanel[4];
+    private JPanel[] bottomBar = new JPanel[4];
+    private JPanel panelPresentacion = new JPanel(), panelGlobalBotes = new JPanel(), pBotesContenedor = new JPanel();
+    private JPanel panelGlobalOPlanta = new JPanel(), pOPlantaContenedor = new JPanel();
     private JButton bStart;
     private JButton[] bCerrar=new JButton[2];
     private JButton[] bBotes=new JButton[13];
@@ -41,7 +43,7 @@ public class InterfazGraficaJuego extends JFrame{
 
     private ActionListener actionListener;
 
-    private static final int WIDTH=1200, HEIGHT=700,Y_BOTES=250;
+    private static final int WIDTH=1200, HEIGHT=700; //Y_BOTES=250;
 
     private volatile boolean contStart=false, presionaStart=false, presionaContenedor=false, presionaProceso=false;
     private volatile boolean dejaMostrarMyrCont=false;
@@ -95,10 +97,19 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setPreferredSize(new Dimension(WIDTH,HEIGHT));
         }
 
+        for (int i=0;i<toolBar.length;i++){
+            toolBar[i] = new JPanel();
+            bottomBar[i] = new JPanel();
+        }
+
         //Para la barra de herramientas y el start
-        toolBar0.setLayout(new BorderLayout());
-        bottomBar0.setLayout(new BorderLayout());
-        toolBar3.setLayout(new BorderLayout());
+        toolBar[0].setLayout(new BorderLayout());
+        bottomBar[0].setLayout(new BorderLayout());
+        toolBar[0].setBorder(new EmptyBorder(10, 10, 10, 20));
+        toolBar[0].setBackground(new Color(0x75ceba));
+        toolBar[3].setLayout(new BorderLayout());
+        toolBar[3].setBorder(new EmptyBorder(10, 10, 10, 20));
+        toolBar[3].setBackground(new Color(0x101110));
 
         //Para el panel de presentacion de niveles
         panelPresentacion.setBackground(Color.DARK_GRAY);
@@ -110,15 +121,32 @@ public class InterfazGraficaJuego extends JFrame{
         //Para el nivel
         panelesFondo[1].setBackground(Color.GRAY);
         panelesFondo[1].setVisible(false);
+        toolBar[1].setLayout(new BorderLayout());
+        toolBar[1].setBorder(new EmptyBorder(20,20,20,20));
+        bottomBar[1].setLayout(new BorderLayout());
+        bottomBar[1].setBorder(new EmptyBorder(20,20,20,20));
         panelGlobalBotes.setLayout(new GridBagLayout());
-        pBotes.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pBotesContenedor.setLayout(new GridLayout(3, 6, 10, 10));
         c.gridx = 0; c.gridy = 1;
-        panelGlobalBotes.add(pBotes);
+        panelGlobalBotes.add(pBotesContenedor,c);
+        panelesFondo[1].add(toolBar[1],BorderLayout.NORTH);
+        panelesFondo[1].add(bottomBar[1],BorderLayout.SOUTH);
         panelesFondo[1].add(panelGlobalBotes,BorderLayout.CENTER);
 
         //Para la planta Tratadora
         panelesFondo[2].setBackground(Color.YELLOW);
         panelesFondo[2].setVisible(false);
+        toolBar[2].setLayout(new BorderLayout());
+        toolBar[2].setBorder(new EmptyBorder(20,20,20,20));
+        bottomBar[2].setLayout(new BorderLayout());
+        bottomBar[2].setBorder(new EmptyBorder(20,20,20,20));
+        panelGlobalOPlanta.setLayout(new GridBagLayout());
+        pOPlantaContenedor.setLayout(new GridLayout(6, 1, 10, 10));
+        c.gridx = 0; c.gridy = 1;
+        panelGlobalOPlanta.add(pOPlantaContenedor,c);
+        panelesFondo[2].add(toolBar[2],BorderLayout.NORTH);
+        panelesFondo[2].add(bottomBar[2],BorderLayout.SOUTH);
+        panelesFondo[2].add(panelGlobalOPlanta,BorderLayout.CENTER);
 
         //Para presentacion
         panelesFondo[3].setBackground(Color.DARK_GRAY);
@@ -135,20 +163,19 @@ public class InterfazGraficaJuego extends JFrame{
         //Solo agregaremos el 1er panel panelesFondo[0] al frame, por BorderLayout
         add(panelesFondo[0],BorderLayout.CENTER);
 
-        /*
         //Paneles para los botes de basura
         //int X_BOTES=20;
         for (int i=0;i<pBotes.length;i++){
             //Se instancian los botes
             pBotes[i]=new JPanel();
-            //pBotes[i].setSize(60,100);
+            pBotes[i].setLayout(new BorderLayout(0,0));
+            //pBotes[i].setPreferredSize(new Dimension(129,180));
             //pBotes[i].setLocation(X_BOTES, Y_BOTES);
             pBotes[i].setBackground(Color.WHITE);
-            panelesFondo[1].add(pBotes[i]);
+            pBotesContenedor.add(pBotes[i]);
 
             //X_BOTES+=90;
         }
-        */
     }
 
     //Botones
@@ -164,13 +191,13 @@ public class InterfazGraficaJuego extends JFrame{
         bStart.setFont(new Font("Bahnschrift",Font.PLAIN,20));
         bStart.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        bottomBar0.add(bStart,BorderLayout.CENTER);
-        bottomBar0.setBorder(new EmptyBorder(20, 200, 40, 200));
-        bottomBar0.setBackground(new Color(0x7ddfc9));
+        bottomBar[0].add(bStart,BorderLayout.CENTER);
+        bottomBar[0].setBorder(new EmptyBorder(20, 200, 40, 200));
+        bottomBar[0].setBackground(new Color(0x7ddfc9));
 
         startAction=new ButtonHandlerStart();
         bStart.addActionListener(startAction);
-        panelesFondo[0].add(bottomBar0,BorderLayout.SOUTH);
+        panelesFondo[0].add(bottomBar[0],BorderLayout.SOUTH);
 
         //botón para Salir del Juego
         initBotonesSalir();
@@ -196,24 +223,21 @@ public class InterfazGraficaJuego extends JFrame{
             bCerrar[i].addActionListener(cerrarAction);
         }
         bCerrar[0].setBackground(new Color(0x75ceba));
-        toolBar0.add(bCerrar[0],BorderLayout.EAST);
-        toolBar0.setBorder(new EmptyBorder(10, 10, 10, 20));
-        toolBar0.setBackground(new Color(0x75ceba));
-        panelesFondo[0].add(toolBar0,BorderLayout.NORTH);
+        toolBar[0].add(bCerrar[0],BorderLayout.EAST);
+        panelesFondo[0].add(toolBar[0],BorderLayout.NORTH);
 
         bCerrar[1].setBackground(new Color(0x101110));
-        toolBar3.add(bCerrar[1],BorderLayout.EAST);
-        toolBar3.setBorder(new EmptyBorder(10, 10, 10, 20));
-        toolBar3.setBackground(new Color(0x101110));
-        panelesFondo[3].add(toolBar3,BorderLayout.NORTH);
+        toolBar[3].add(bCerrar[1],BorderLayout.EAST);
+        panelesFondo[3].add(toolBar[3],BorderLayout.NORTH);
     }
 
     public void initBotonesContenedores(){
         for (int i=0;i<bBotes.length;i++){
-            bBotes[i]=new JButton("T");
+            bBotes[i]=new JButton();
             bBotes[i].addActionListener(new ButtonHandlerTirar(i));
+            bBotes[i].setIcon(boteIcon[i]);
             bBotes[i].setFocusable(false);
-            pBotes.add(bBotes[i]);
+            pBotes[i].add(bBotes[i],BorderLayout.CENTER);
         }
     }
 
@@ -255,101 +279,94 @@ public class InterfazGraficaJuego extends JFrame{
         bProcesos[27]=new JButton("Recolectar con PRECAUCIÓN");
         bProcesos[28]=new JButton("Enviar a instalación especial");
 
-        int X_PROCESOS=150;
+        //int X_PROCESOS=150;
         for (int i=0;i<bProcesos.length;i++){
             bProcesos[i].addActionListener(new ButtonHandlerProcesos(i));
             bProcesos[i].setFocusable(false);
             if (i<=6){
                 bProcesos[i].setSize(80,30);
-                bProcesos[i].setLocation(X_PROCESOS, 150);
-                panelesFondo[2].add(bProcesos[i]);
+                //bProcesos[i].setLocation(X_PROCESOS, 150);
+                //pOPlantaContenedor.add(bProcesos[i]);
             }  
             if (i==7 || i==8){
-                if (i==7){
-                    bProcesos[i].setSize(90,30);
-                    bProcesos[i].setLocation(X_PROCESOS, 150);
+                if (i==7){ bProcesos[i].setSize(90,30); //bProcesos[i].setLocation(X_PROCESOS, 150);
                 }
-                else{
-                    bProcesos[i].setSize(100,30);
-                    bProcesos[i].setLocation(X_PROCESOS, 150);
+                else{ bProcesos[i].setSize(100,30); //bProcesos[i].setLocation(X_PROCESOS, 150); 
                 }
-                
-                X_PROCESOS+=10;
-
-                panelesFondo[2].add(bProcesos[i]);
+                //X_PROCESOS+=10;
+                //pOPlantaContenedor.add(bProcesos[i]);
             }
 
-            X_PROCESOS+=90;   
+            //X_PROCESOS+=90;   
         }
         
-        X_PROCESOS=110;
+        //X_PROCESOS=110;
         for (int i=9; i<17;i++){
             bProcesos[i].setSize(100,30);
-            bProcesos[i].setLocation(X_PROCESOS, 210);
+            //bProcesos[i].setLocation(X_PROCESOS, 210);
 
             if (i>=14){
                 bProcesos[i].setSize(110,30);
-                bProcesos[i].setLocation(X_PROCESOS, 210);
+                //bProcesos[i].setLocation(X_PROCESOS, 210);
                 if (i==16){
                     bProcesos[i].setSize(120,30);
-                    bProcesos[i].setLocation(X_PROCESOS, 210);
+                    //bProcesos[i].setLocation(X_PROCESOS, 210);
                 }
-                X_PROCESOS+=10;
+                //X_PROCESOS+=10;
             }
-
-            X_PROCESOS+=110;
-            panelesFondo[2].add(bProcesos[i]);
+            //X_PROCESOS+=110;
+            //pOPlantaContenedor.add(bProcesos[i]);
         }
 
-        X_PROCESOS=107;
+        //X_PROCESOS=107;
         for (int i=17; i<23;i++){
             bProcesos[i].setSize(120,30);
-            bProcesos[i].setLocation(X_PROCESOS, 270);
+            //bProcesos[i].setLocation(X_PROCESOS, 270);
             
             if (i>=18){
                 bProcesos[i].setSize(140,30);
-                bProcesos[i].setLocation(X_PROCESOS, 270);
+                //bProcesos[i].setLocation(X_PROCESOS, 270);
                 
                 if (i>=21){
                     bProcesos[i].setSize(160,30);
-                    bProcesos[i].setLocation(X_PROCESOS, 270);
-                    X_PROCESOS+=10;
+                    //bProcesos[i].setLocation(X_PROCESOS, 270);
+                    //X_PROCESOS+=10;
 
                     if (i>=22){
                         bProcesos[i].setSize(170,30);
-                        bProcesos[i].setLocation(X_PROCESOS, 270);
-                        X_PROCESOS+=10;
+                    //    bProcesos[i].setLocation(X_PROCESOS, 270);
+                    //    X_PROCESOS+=10;
                     }
                 }
 
-                X_PROCESOS+=20;
+                //X_PROCESOS+=20;
             }
 
-            X_PROCESOS+=130;
-            panelesFondo[2].add(bProcesos[i]);
+            //X_PROCESOS+=130;
+            //pOPlantaContenedor.add(bProcesos[i]);
         }
 
-        X_PROCESOS=210;
+        //X_PROCESOS=210;
         for (int i=23; i<27;i++){
             bProcesos[i].setSize(170,30);
-            bProcesos[i].setLocation(X_PROCESOS, 330);
+            //bProcesos[i].setLocation(X_PROCESOS, 330);
             if (i==26){
                 bProcesos[i].setSize(180,30);
-                bProcesos[i].setLocation(X_PROCESOS, 330);
-                X_PROCESOS+=10;
+                //bProcesos[i].setLocation(X_PROCESOS, 330);
+                //X_PROCESOS+=10;
             }
 
-            X_PROCESOS+=180;
-            panelesFondo[2].add(bProcesos[i]);
+            //X_PROCESOS+=180;
+            //pOPlantaContenedor.add(bProcesos[i]);
         }
         
-        X_PROCESOS=(WIDTH/2)-215;
+        //X_PROCESOS=(WIDTH/2)-215;
         for (int i=27; i<29;i++){
             bProcesos[i].setSize(210,30);
-            bProcesos[i].setLocation(X_PROCESOS, 390);
+            //bProcesos[i].setLocation(X_PROCESOS, 390);
 
-            X_PROCESOS+=220;
-            panelesFondo[2].add(bProcesos[i]);
+            //X_PROCESOS+=220;
+            //pOPlantaContenedor.add(bProcesos[i]);
         }
     }
 
@@ -387,6 +404,7 @@ public class InterfazGraficaJuego extends JFrame{
         lPresentacion.setForeground(Color.WHITE);
         lPresentacion.setFont(new Font("Bahnschrift",Font.PLAIN,15));
         lPresentacion.setBorder(new EmptyBorder(10, 10, 10, 10));
+        lPresentacion.setPreferredSize(new Dimension(100, 150));
 
         //lPresentacion.setSize(190,200);
         //lPresentacion.setLocation(((WIDTH-lPresentacion.getWidth())/2), (HEIGHT-lPresentacion.getHeight())/2);
@@ -406,8 +424,8 @@ public class InterfazGraficaJuego extends JFrame{
         lCarga.setHorizontalAlignment(JLabel.RIGHT);
         lCarga.setForeground(Color.WHITE);
         lCarga.setSize(220,80);
-        lCarga.setBorder(new EmptyBorder(10, 10, 40, 70));
-        lCarga.setFont(new Font("Bahnschrift",Font.PLAIN,20));
+        lCarga.setBorder(new EmptyBorder(0, 10, 40, 70));
+        lCarga.setFont(new Font("Bahnschrift",Font.PLAIN,18));
         //lCarga.setLocation((WIDTH-lCarga.getWidth())-80,(HEIGHT-lCarga.getHeight())-30);
         panelesFondo[3].add(lCarga,BorderLayout.SOUTH);
 
@@ -428,26 +446,28 @@ public class InterfazGraficaJuego extends JFrame{
         lInstrucciones=new JLabel();
         lInstrucciones.setHorizontalAlignment(JLabel.CENTER);
         lInstrucciones.setSize(500,80);
-        lInstrucciones.setLocation((WIDTH-lInstrucciones.getWidth())/2,70);
-        panelesFondo[2].add(lInstrucciones);
+        lInstrucciones.setBorder(new EmptyBorder(20,20,20,20));
+        //lInstrucciones.setLocation((WIDTH-lInstrucciones.getWidth())/2,70);
+        c.gridx = 0; c.gridy = 0;
+        panelGlobalOPlanta.add(lInstrucciones,c);
 
         initEtiquetasMuestraResultados();
         initEtiquetasResultFinales();
     }
 
     public void initEtiquetasContenedores(){
-        int X_BOTES=20;
+        //int X_BOTES=20;
         for(int i=0; i<lBotes.length; i++){
             //Se instancian las etiquetas
             lBotes[i]=new JLabel();
             lBotes[i].setSize(60,30);
-            lBotes[i].setLocation(X_BOTES, Y_BOTES-50);
+            //lBotes[i].setLocation(X_BOTES, Y_BOTES-50);
             lBotes[i].setBackground(new Color(255, 204, 51));
             lBotes[i].setHorizontalAlignment(JLabel.CENTER);
             lBotes[i].setOpaque(true);
-            panelesFondo[1].add(lBotes[i]);
+            pBotes[i].add(lBotes[i],BorderLayout.SOUTH);
 
-            X_BOTES+=90;
+            //X_BOTES+=90;
         }
     }
 
@@ -457,12 +477,12 @@ public class InterfazGraficaJuego extends JFrame{
             lTurnos[i]=new JLabel();
             lTurnos[i].setHorizontalAlignment(JLabel.LEFT);
             lTurnos[i].setSize(220,80);
-            lTurnos[i].setLocation(30,10);
+            //lTurnos[i].setLocation(30,10);
         }
         //Se agrega una etiqueta de Turno al Panel Tirar a Contenedor
-        panelesFondo[1].add(lTurnos[0]);
+        toolBar[1].add(lTurnos[0],BorderLayout.WEST);
         //Se agrega una etiqueta de Turno al Panel Planta Tratadora
-        panelesFondo[2].add(lTurnos[1]);
+        toolBar[2].add(lTurnos[1],BorderLayout.WEST);
     }
 
     public void initEtiquetasStats(){
@@ -470,11 +490,11 @@ public class InterfazGraficaJuego extends JFrame{
             lStats[i]=new JLabel();
             lStats[i].setHorizontalAlignment(JLabel.RIGHT);
             lStats[i].setSize(220,80);
-            lStats[i].setLocation((WIDTH-lStats[i].getWidth())-50,10);
+            //lStats[i].setLocation((WIDTH-lStats[i].getWidth())-50,10);
         }
         
-        panelesFondo[1].add(lStats[0]);
-        panelesFondo[2].add(lStats[1]);
+        toolBar[1].add(lStats[0],BorderLayout.EAST);
+        toolBar[2].add(lStats[1],BorderLayout.EAST);
     }
     
     public void initEtiquetasTiempRest(){
@@ -483,11 +503,12 @@ public class InterfazGraficaJuego extends JFrame{
             lTiempoRest[i].setHorizontalAlignment(JLabel.RIGHT);
             lTiempoRest[i].setSize(100,80);
             lTiempoRest[i].setLocation((WIDTH-lTiempoRest[i].getWidth())-50, (HEIGHT-lTiempoRest[i].getHeight())-50);
+            lTiempoRest[i].setBorder(new EmptyBorder(0,20,20,20));
         }
         //Se agrega la primera etiqueta de tiempo en el panel de tirar a Contenedor
-        panelesFondo[1].add(lTiempoRest[0]);
+        bottomBar[1].add(lTiempoRest[0],BorderLayout.EAST);
         //Se agrega la segunda etiqueta de tiempo en el panel de Planta Tratadora
-        panelesFondo[2].add(lTiempoRest[1]);
+        bottomBar[2].add(lTiempoRest[1],BorderLayout.EAST);
     }
 
     public void initEtiquetasDesecho(){
@@ -501,8 +522,8 @@ public class InterfazGraficaJuego extends JFrame{
             lDesechos[i].setOpaque(true);
         }
         
-        panelesFondo[1].add(lDesechos[0]);
-        panelesFondo[2].add(lDesechos[1]);
+        bottomBar[1].add(lDesechos[0],BorderLayout.CENTER);
+        bottomBar[2].add(lDesechos[1],BorderLayout.CENTER);
     }
 
     public void initEtiquetasMuestraResultados(){
@@ -753,12 +774,30 @@ public class InterfazGraficaJuego extends JFrame{
 
     public void mostrarProcesosEsp(int[] array){
         for (int i=0;i<bProcesos.length;i++){
-            bProcesos[i].setVisible(false);
+            if (pOPlantaContenedor.isAncestorOf(bProcesos[i])) {
+                bProcesos[i].setVisible(false);
+                pOPlantaContenedor.remove(bProcesos[i]);
+            }
         }
+        int[] elementosAleatorizados = new int[array.length];
+        for (int i=0;i<array.length;i++) elementosAleatorizados[i] = array[i];
+        elementosAleatorizados = Aleatorizar(elementosAleatorizados);
+        for (int i=0;i<elementosAleatorizados.length;i++){
+            bProcesos[elementosAleatorizados[i]].setVisible(true);
+            pOPlantaContenedor.add(bProcesos[elementosAleatorizados[i]]);
+        }
+    }
 
-        for (int i=0;i<array.length;i++){
-            bProcesos[array[i]].setVisible(true);
+    //Aleatorizar un arreglo
+    private int[] Aleatorizar(int[] a) {
+        // recorremos todo el arreglo
+        for(int i = a.length - 1; i > 0; i--) {
+            int randomIndex = (int)Math.floor(Math.random() * (i + 1)); // Calculamos un i aleatorio en el rando del arreglo
+            int temp = a[i]; //guardamos el elemento que estamos iterando
+            a[i] = a[randomIndex];// Asignamos el elemento aleatorio al índice iterado
+            a[randomIndex] = temp;// Asignamos el elemento iterado al índice aleatorio
         }
+        return a;
     }
 
     //ActionListeners
