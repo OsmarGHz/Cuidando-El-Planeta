@@ -18,7 +18,7 @@ public class InterfazGraficaJuego extends JFrame{
     private ImageIcon closeIcon = new ImageIcon("Imagenes/minClose.png");
 
     private JPanel[] pBotes=new JPanel[13];
-    private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel();
+    private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel(), toolBar3 = new JPanel();
     private JButton bStart;
     private JButton[] bCerrar=new JButton[2];
     private JButton[] bBotes=new JButton[13];
@@ -74,6 +74,7 @@ public class InterfazGraficaJuego extends JFrame{
         //Para la barra de herramientas y el start
         toolBar0.setLayout(new BorderLayout());
         bottomBar0.setLayout(new BorderLayout());
+        toolBar3.setLayout(new BorderLayout());
 
         //Para el Menu 
         panelesFondo[0].setBackground(new Color(0x7ddfc9));
@@ -163,7 +164,11 @@ public class InterfazGraficaJuego extends JFrame{
         toolBar0.setBorder(new EmptyBorder(10, 10, 10, 20));
         toolBar0.setBackground(new Color(0x75ceba));
         panelesFondo[0].add(toolBar0,BorderLayout.NORTH);
-        panelesFondo[3].add(bCerrar[1]);
+
+        toolBar3.add(bCerrar[1],BorderLayout.EAST);
+        toolBar3.setBorder(new EmptyBorder(10, 10, 10, 20));
+        toolBar3.setBackground(new Color(0x75ceba));
+        panelesFondo[3].add(toolBar3,BorderLayout.NORTH);
     }
 
     public void initBotonesContenedores(){
