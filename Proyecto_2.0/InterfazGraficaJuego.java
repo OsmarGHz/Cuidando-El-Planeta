@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -20,10 +21,11 @@ public class InterfazGraficaJuego extends JFrame{
 
     private ImageIcon cuidandoElPlanetaLogo = new ImageIcon("Imagenes/CuidandoElPlaneta.png");
     private ImageIcon closeIcon = new ImageIcon("Imagenes/minClose.png");
+    private ImageIcon[] boteIcon = new ImageIcon[13];
 
-    private JPanel[] pBotes=new JPanel[13];
+    private JPanel pBotes = new JPanel();
     private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel(), toolBar3 = new JPanel();
-    private JPanel panelPresentacion = new JPanel();
+    private JPanel panelPresentacion = new JPanel(), panelGlobalBotes = new JPanel();
     private JButton bStart;
     private JButton[] bCerrar=new JButton[2];
     private JButton[] bBotes=new JButton[13];
@@ -47,7 +49,7 @@ public class InterfazGraficaJuego extends JFrame{
 
     //Se inicializan e instancian los parametros del Frame
     public InterfazGraficaJuego(){ 
-
+        initImagenes();
 
         initPantalla();
 
@@ -56,6 +58,23 @@ public class InterfazGraficaJuego extends JFrame{
         initBotones();
 
         initEtiquetas();
+    }
+
+    //Inicializar logos de botes
+    public void initImagenes(){
+        boteIcon[0] = new ImageIcon("Imagenes/ContenedorOrganicos.png");
+        boteIcon[1] = new ImageIcon("Imagenes/ContenedorPapeles.png");
+        boteIcon[2] = new ImageIcon("Imagenes/ContenedorVidrios.png");
+        boteIcon[3] = new ImageIcon("Imagenes/ContenedorPlasticos.png");
+        boteIcon[4] = new ImageIcon("Imagenes/ContenedorMetales.png");
+        boteIcon[5] = new ImageIcon("Imagenes/ContenedorAceites.png");
+        boteIcon[6] = new ImageIcon("Imagenes/ContenedorPinturas.png");
+        boteIcon[7] = new ImageIcon("Imagenes/ContenedorBaterias.png");
+        boteIcon[8] = new ImageIcon("Imagenes/ContenedorPilas.png");
+        boteIcon[9] = new ImageIcon("Imagenes/ContenedorElectronicos.png");
+        boteIcon[10] = new ImageIcon("Imagenes/ContenedorMedicamentos.png");
+        boteIcon[11] = new ImageIcon("Imagenes/ContenedorQuimicos.png");
+        boteIcon[12] = new ImageIcon("Imagenes/Contenedor Biologicos.png");
     }
 
     //Ajustes del Frame
@@ -91,6 +110,11 @@ public class InterfazGraficaJuego extends JFrame{
         //Para el nivel
         panelesFondo[1].setBackground(Color.GRAY);
         panelesFondo[1].setVisible(false);
+        panelGlobalBotes.setLayout(new GridBagLayout());
+        pBotes.setLayout(new FlowLayout(FlowLayout.CENTER));
+        c.gridx = 0; c.gridy = 1;
+        panelGlobalBotes.add(pBotes);
+        panelesFondo[1].add(panelGlobalBotes,BorderLayout.CENTER);
 
         //Para la planta Tratadora
         panelesFondo[2].setBackground(Color.YELLOW);
@@ -111,18 +135,20 @@ public class InterfazGraficaJuego extends JFrame{
         //Solo agregaremos el 1er panel panelesFondo[0] al frame, por BorderLayout
         add(panelesFondo[0],BorderLayout.CENTER);
 
+        /*
         //Paneles para los botes de basura
-        int X_BOTES=20;
+        //int X_BOTES=20;
         for (int i=0;i<pBotes.length;i++){
             //Se instancian los botes
             pBotes[i]=new JPanel();
-            pBotes[i].setSize(60,100);
-            pBotes[i].setLocation(X_BOTES, Y_BOTES);
+            //pBotes[i].setSize(60,100);
+            //pBotes[i].setLocation(X_BOTES, Y_BOTES);
             pBotes[i].setBackground(Color.WHITE);
             panelesFondo[1].add(pBotes[i]);
 
-            X_BOTES+=90;
+            //X_BOTES+=90;
         }
+        */
     }
 
     //Botones
@@ -187,7 +213,7 @@ public class InterfazGraficaJuego extends JFrame{
             bBotes[i]=new JButton("T");
             bBotes[i].addActionListener(new ButtonHandlerTirar(i));
             bBotes[i].setFocusable(false);
-            pBotes[i].add(bBotes[i]);
+            pBotes.add(bBotes[i]);
         }
     }
 
