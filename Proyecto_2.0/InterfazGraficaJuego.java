@@ -330,16 +330,17 @@ public class InterfazGraficaJuego extends JFrame{
         lPresentacion.setHorizontalAlignment(JLabel.CENTER);
         lPresentacion.setForeground(Color.WHITE);
         lPresentacion.setSize(190,200);
-        lPresentacion.setLocation(((WIDTH-lPresentacion.getWidth())/2), (HEIGHT-lPresentacion.getHeight())/2);
-        panelesFondo[3].add(lPresentacion);
+        //lPresentacion.setLocation(((WIDTH-lPresentacion.getWidth())/2), (HEIGHT-lPresentacion.getHeight())/2);
+        panelesFondo[3].add(lPresentacion,BorderLayout.CENTER);
 
         //Se te indica cuando comenzará el juego
         lCarga=new JLabel();
         lCarga.setHorizontalAlignment(JLabel.RIGHT);
         lCarga.setForeground(Color.WHITE);
         lCarga.setSize(220,80);
-        lCarga.setLocation((WIDTH-lCarga.getWidth())-80,(HEIGHT-lCarga.getHeight())-30);
-        panelesFondo[3].add(lCarga);
+        lCarga.setBorder(new EmptyBorder(10, 10, 40, 70));
+        //lCarga.setLocation((WIDTH-lCarga.getWidth())-80,(HEIGHT-lCarga.getHeight())-30);
+        panelesFondo[3].add(lCarga,BorderLayout.SOUTH);
 
         initEtiquetasTurno();
 
@@ -547,7 +548,7 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setVisible(false);
             if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
         }
-        add(panelesFondo[1]);
+        add(panelesFondo[1],BorderLayout.CENTER);
         panelesFondo[1].setVisible(true);
     }
 
@@ -556,7 +557,7 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setVisible(false);
             if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
         }
-        add(panelesFondo[2]);
+        add(panelesFondo[2],BorderLayout.CENTER);
         panelesFondo[2].setVisible(true);
     }
 
@@ -565,7 +566,7 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setVisible(false);
             if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
         }
-        add(panelesFondo[3]);
+        add(panelesFondo[3],BorderLayout.CENTER);
         panelesFondo[3].setVisible(true);
 
         // Temporizador para el conteo regresivo
@@ -600,7 +601,7 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setVisible(false);
             if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
         }
-        add(panelesFondo[4]);
+        add(panelesFondo[4],BorderLayout.CENTER);
         panelesFondo[4].setVisible(true);
 
         final Object monitor = new Object(); // Objeto de sincronización
@@ -642,7 +643,7 @@ public class InterfazGraficaJuego extends JFrame{
             panelesFondo[i].setVisible(false);
             if (isAncestorOf(panelesFondo[i])) remove(panelesFondo[i]);
         }
-        add(panelesFondo[5]);
+        add(panelesFondo[5],BorderLayout.CENTER);
         panelesFondo[5].setVisible(true);
 
         final Object monitor = new Object(); // Objeto de sincronización
