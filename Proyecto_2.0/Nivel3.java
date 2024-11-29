@@ -4,8 +4,18 @@ public class Nivel3 extends Nivel{
     }
 
     @Override
+    public String tituloNivel() {
+        return ("NIVEL 3");
+    }
+
+    @Override
+    public String dificultadNivel() {
+        return ("Dificultad: Alta");
+    }
+
+    @Override
     public String presentacionNivel() {
-        return ("<html>NIVEL 3:<br><br>Dificultad: Alta<br><br>Tipos de Desechos Especiales:<br><br>- Medicamentos Caducados<br>- Residuos Químicos de Laboratorio<br>- Residuos Biológicos</html>");
+        return ("<html>- Medicamentos Caducados<p>- Residuos Químicos de Laboratorio<p>- Residuos Biológicos</html>");
     }
 
     @Override

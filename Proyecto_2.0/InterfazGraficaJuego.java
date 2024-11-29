@@ -1,11 +1,13 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,17 +16,20 @@ public class InterfazGraficaJuego extends JFrame{
     // 0:Panel Menu, 1:Panel FondoBasura, 2:Panel FondoPlanta, 3:Panel Presentación, 4:Panel Resultados, 5: Pierde/Gana
     private JPanel[] panelesFondo=new JPanel[6];
 
+    private GridBagConstraints c = new GridBagConstraints();
+
     private ImageIcon cuidandoElPlanetaLogo = new ImageIcon("Imagenes/CuidandoElPlaneta.png");
     private ImageIcon closeIcon = new ImageIcon("Imagenes/minClose.png");
 
     private JPanel[] pBotes=new JPanel[13];
     private JPanel toolBar0 = new JPanel(), bottomBar0 = new JPanel(), toolBar3 = new JPanel();
+    private JPanel panelPresentacion = new JPanel();
     private JButton bStart;
     private JButton[] bCerrar=new JButton[2];
     private JButton[] bBotes=new JButton[13];
     private JButton[] bProcesos=new JButton[29];
 
-    private JLabel lMenu, lPresentacion, lCarga, lInstrucciones; 
+    private JLabel lMenu, lTituloNivel, lDificultadNivel, lDesechosEspeciales, lPresentacion, lCarga, lInstrucciones; 
     private JLabel[] lTurnos=new JLabel[2], lStats=new JLabel[2], lDesechos=new JLabel[2], lPresentRes=new JLabel[3];
     private JLabel[] lTiempoRest=new JLabel[2], lPresentResFinal=new JLabel[2], lMuestraTiempoMyrCont=new JLabel[2];
     private JLabel[] lBotes=new JLabel[13];
@@ -76,6 +81,10 @@ public class InterfazGraficaJuego extends JFrame{
         bottomBar0.setLayout(new BorderLayout());
         toolBar3.setLayout(new BorderLayout());
 
+        //Para el panel de presentacion de niveles
+        panelPresentacion.setBackground(Color.DARK_GRAY);
+        panelPresentacion.setLayout(new GridBagLayout());
+
         //Para el Menu 
         panelesFondo[0].setBackground(new Color(0x7ddfc9));
 
@@ -126,6 +135,7 @@ public class InterfazGraficaJuego extends JFrame{
         bStart.setBackground(new Color(0x66df84));
         bStart.setForeground(Color.WHITE);
         bStart.setOpaque(true);
+        bStart.setFont(new Font("Bahnschrift",Font.PLAIN,20));
         bStart.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         bottomBar0.add(bStart,BorderLayout.CENTER);
@@ -154,20 +164,21 @@ public class InterfazGraficaJuego extends JFrame{
             bCerrar[i].setSize(50,50);
             //bCerrar[i].setLocation((WIDTH-bCerrar[i].getWidth())-30, bCerrar[i].getHeight()-20);
             bCerrar[i].setFocusable(false);
-            bCerrar[i].setBackground(new Color(0x75ceba));
             bCerrar[i].setBorder(null);
             //bCerrar[i].setForeground(new Color(0, 255, 51));
             
             bCerrar[i].addActionListener(cerrarAction);
         }
+        bCerrar[0].setBackground(new Color(0x75ceba));
         toolBar0.add(bCerrar[0],BorderLayout.EAST);
         toolBar0.setBorder(new EmptyBorder(10, 10, 10, 20));
         toolBar0.setBackground(new Color(0x75ceba));
         panelesFondo[0].add(toolBar0,BorderLayout.NORTH);
 
+        bCerrar[1].setBackground(new Color(0x101110));
         toolBar3.add(bCerrar[1],BorderLayout.EAST);
         toolBar3.setBorder(new EmptyBorder(10, 10, 10, 20));
-        toolBar3.setBackground(new Color(0x75ceba));
+        toolBar3.setBackground(new Color(0x101110));
         panelesFondo[3].add(toolBar3,BorderLayout.NORTH);
     }
 
@@ -326,12 +337,43 @@ public class InterfazGraficaJuego extends JFrame{
         //lMenu.setLocation(((WIDTH-lMenu.getWidth())/2), HEIGHT*1/4);
         panelesFondo[0].add(lMenu,BorderLayout.CENTER);
 
+        lTituloNivel = new JLabel();
+        lTituloNivel.setHorizontalAlignment(JLabel.CENTER);
+        lTituloNivel.setForeground(Color.WHITE);
+        lTituloNivel.setFont(new Font("Bahnschrift",Font.BOLD,40));
+        lTituloNivel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        lDificultadNivel = new JLabel();
+        lDificultadNivel.setHorizontalAlignment(JLabel.CENTER);
+        lDificultadNivel.setForeground(Color.WHITE);
+        lDificultadNivel.setFont(new Font("Bahnschrift",Font.PLAIN,28));
+        lDificultadNivel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        lDesechosEspeciales = new JLabel();
+        lDesechosEspeciales.setHorizontalAlignment(JLabel.CENTER);
+        lDesechosEspeciales.setText("Tipos de Desechos Especiales:");
+        lDesechosEspeciales.setForeground(Color.WHITE);
+        lDesechosEspeciales.setFont(new Font("Bahnschrift",Font.PLAIN,18));
+        lDesechosEspeciales.setBorder(new EmptyBorder(10, 10, 10, 10));
+
         lPresentacion=new JLabel();
         lPresentacion.setHorizontalAlignment(JLabel.CENTER);
         lPresentacion.setForeground(Color.WHITE);
-        lPresentacion.setSize(190,200);
+        lPresentacion.setFont(new Font("Bahnschrift",Font.PLAIN,15));
+        lPresentacion.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        //lPresentacion.setSize(190,200);
         //lPresentacion.setLocation(((WIDTH-lPresentacion.getWidth())/2), (HEIGHT-lPresentacion.getHeight())/2);
-        panelesFondo[3].add(lPresentacion,BorderLayout.CENTER);
+        c.gridx = 0; c.gridy = 0;
+        panelPresentacion.add(lTituloNivel,c);
+        c.gridx = 0; c.gridy = 1;
+        panelPresentacion.add(lDificultadNivel,c);
+        c.gridx = 0; c.gridy = 2;
+        panelPresentacion.add(lDesechosEspeciales,c);
+        c.gridx = 0; c.gridy = 3;
+        panelPresentacion.add(lPresentacion,c);
+
+        panelesFondo[3].add(panelPresentacion,BorderLayout.CENTER);
 
         //Se te indica cuando comenzará el juego
         lCarga=new JLabel();
@@ -339,6 +381,7 @@ public class InterfazGraficaJuego extends JFrame{
         lCarga.setForeground(Color.WHITE);
         lCarga.setSize(220,80);
         lCarga.setBorder(new EmptyBorder(10, 10, 40, 70));
+        lCarga.setFont(new Font("Bahnschrift",Font.PLAIN,20));
         //lCarga.setLocation((WIDTH-lCarga.getWidth())-80,(HEIGHT-lCarga.getHeight())-30);
         panelesFondo[3].add(lCarga,BorderLayout.SOUTH);
 
@@ -755,6 +798,14 @@ public class InterfazGraficaJuego extends JFrame{
     }
 
     //Getters
+    public JLabel getLTitulo(){
+        return (lTituloNivel);
+    }
+
+    public JLabel getLDificultad(){
+        return (lDificultadNivel);
+    }
+
     public JLabel getLPresentacion(){
         return (lPresentacion);
     }

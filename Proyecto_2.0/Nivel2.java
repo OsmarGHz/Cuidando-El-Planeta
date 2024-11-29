@@ -4,8 +4,18 @@ public class Nivel2 extends Nivel{
     }
 
     @Override
+    public String tituloNivel() {
+        return ("NIVEL 2");
+    }
+
+    @Override
+    public String dificultadNivel() {
+        return ("Dificultad: Media");
+    }
+
+    @Override
     public String presentacionNivel() {
-        return ("<html>NIVEL 2:<br><br>Dificultad: Media<br><br>Tipos de Desechos Especiales:<br><br>- Vidrios<br>- Electrónicos<br>- Baterías<br>- Cartones</html>");
+        return ("<html>- Vidrios<p>- Electrónicos<p>- Baterías<p>- Cartones</html>");
     }
 
     @Override

@@ -15,6 +15,8 @@ public abstract class Nivel implements NivInt {
         this.segundosTurno=segundosTurno;
     }
 
+    public abstract String tituloNivel();
+    public abstract String dificultadNivel();
     public abstract String presentacionNivel();
 
     //Composición con desechos (cada clase Nivel crea los Desechos que se ingresan en desechos[][])

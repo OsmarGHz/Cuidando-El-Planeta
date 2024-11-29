@@ -437,6 +437,8 @@ public class Juego {
 
         //Se muestran especificaciones de Nivel
         //Al JTextField se le asigna cada String dado por los metodos presentacionNivel(Método abstracto de Niveles y Polimorfismo)
+        iGraficaJuego.getLTitulo().setText(niveles[nivelActual].tituloNivel());
+        iGraficaJuego.getLDificultad().setText(niveles[nivelActual].dificultadNivel());
         iGraficaJuego.getLPresentacion().setText(niveles[nivelActual].presentacionNivel());
         lock.lock();
         try{
