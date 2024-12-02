@@ -1220,3 +1220,34 @@ Con 1 desecho(s)
 ---------------------------------------------------------------------------------------------------
 Ganaron
 ¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 54 segundos.
+El jugador seleccionó el contenedor Orgánico... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+>> Mantenimiento>> Compostaje>> Uso final 
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 35 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 30                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
