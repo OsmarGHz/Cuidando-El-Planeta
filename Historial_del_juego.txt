@@ -1,0 +1,1222 @@
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 52 segundos.
+El jugador seleccionó el contenedor Plásticos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Fusion >> Corte de plastico 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Pinturas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 20                  Vidas: 3
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 2
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 30                  Vidas: 2
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Neutralizar 
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 1
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 40                  Vidas: 1
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Fusion 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Chatarra/Metal... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Chatarra/Metal... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Vidrios... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Vidrios... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Plásticos
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 47 segundos.
+El jugador seleccionó el contenedor Electrónicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Pilas... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Electrónicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Pilas... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Electrónicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Todos los contenedores están vacíos.--Stats de nivel: 
+-  ( a )  Puntos: 0                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Perdieron
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 18 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 33 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 22 segundos.
+El jugador seleccionó el contenedor Aceites... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Destilacion >> Nuevo Producto 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Aceites
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 55 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Pilas
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 55 segundos.
+El jugador seleccionó el contenedor Orgánico... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+>> Mantenimiento>> Uso final 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Orgánico
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 3
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Clasificacion >> Triturar 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Plásticos
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Orgánico... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+>> Mantenimiento>> Compostaje>> Uso final 
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 42 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 30                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 4
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Orgánico
+ + Pilas
+--Stats de nivel: 
+-  ( a )  Puntos: 30                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 52 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Triturar >> Fusion 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Plásticos
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 51 segundos.
+El jugador seleccionó el contenedor Papeles/Cartones... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Clasificacion >> Desintegracion>> Refinamiento de Pulpa>> Nuevo Producto 
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 36 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 30                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Separacion de Componentes 
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 4
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 30                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Papeles/Cartones
+ + Pilas
+--Stats de nivel: 
+-  ( a )  Puntos: 30                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Eliminacion 
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Pilas
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 1 segundos.
+El jugador seleccionó el contenedor Orgánico... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Aceites... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 20                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 5
+Te quedaron 12 segundos.
+El jugador seleccionó el contenedor Orgánico... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 30                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Tipo de desecho: Orgánico
+>> Mantenimiento>> Compostaje>> Uso final 
+>> Turno de a		Puntos: 40                  Vidas: 5
+Te quedaron 0 segundos.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 40                  Vidas: 5
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Papeles/Cartones... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 50                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Clasificacion >> Destilacion 
+Se pasa el turno
+
+>> Turno de a		Puntos: 50                  Vidas: 4
+Te quedaron 55 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 50                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 50                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 50                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 2 desecho(s) 
+ + Orgánico
+--Stats de nivel: 
+-  ( a )  Puntos: 50                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 51 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 2
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 1
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Todos los contenedores están vacíos.--Stats de nivel: 
+-  ( a )  Puntos: 0                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Perdieron
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 54 segundos.
+El jugador seleccionó el contenedor Electrónicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 0                  Vidas: 4
+Te quedaron 56 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 19 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 20                  Vidas: 4
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	>> Clasificacion 
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 3
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 20                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 2 desecho(s) 
+ + Plásticos
+--Stats de nivel: 
+-  ( a )  Puntos: 20                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 50 segundos.
+El jugador seleccionó el contenedor Plásticos... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 57 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Plásticos
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 38 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 4
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 3
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 2
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Biológicos... Incorrecto, -1 vidas.
+
+Se pasa el turno
+
+>> Turno de a		Puntos: 10                  Vidas: 1
+Te quedaron 58 segundos.
+El jugador seleccionó el contenedor Residuos Químicos de Laboratorio... Incorrecto, -1 vidas.
+
+Se pasa el turno
+Para el nivel: 1, Los contenedores con más Desechos ingresados fueron: 
+Con 1 desecho(s) 
+ + Pilas
+--Stats de nivel: 
+-  ( a )  Puntos: 10                  Vidas: 0
+
+---------------------------------------------------------------------------------------------------
+Ganaron
+¡¡ a !!
