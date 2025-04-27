@@ -1251,3 +1251,47 @@ Pasando a la planta...
 >> Turno de a		Puntos: 30                  Vidas: 5
 **Ingresa los comandos en el orden correcto para tratar los desechos**
 	
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 2
+Jugador 1: a
+Jugador 2: b
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 3
+Jugador 1: a
+Jugador 2: b
+Jugador 3: c
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+Numero de jugadores: 1
+Jugador 1: a
+
+
+	---Nivel 0---
+
+
+>> Turno de a		Puntos: 0                  Vidas: 5
+Te quedaron 27 segundos.
+El jugador seleccionó el contenedor Pilas... Correcto! +10 pts.
+Pasando a la planta...
+
+>> Turno de a		Puntos: 10                  Vidas: 5
+**Ingresa los comandos en el orden correcto para tratar los desechos**
+	
